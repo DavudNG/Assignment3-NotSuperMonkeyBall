@@ -18,6 +18,7 @@ public class ParentEnemy : MonoBehaviour
     private bool colliding; // Bool to check if a collision is occurring
     public Transform player; // Transform for the player's position for the "FollowPlayer" movement type
     public float followDistance = 15f; // Distance within which the enemy will start following the player
+    public float launchForce = 10f; // Force applied to the player when colliding with the enemy
 
     private Rigidbody2D body; // Enemy's Rigidbody2D to control their movement using vectors
 
@@ -32,6 +33,28 @@ public class ParentEnemy : MonoBehaviour
         else if (movementType == MovementType.followPlayer) // If the movement type is follow player
         {
             StartCoroutine(FollowPlayer()); // Start the associated follow player coroutine, which the enemy will forever do
+        }
+    }
+
+    /*
+    
+    OnCollisionEnter2D
+    Author: Angus
+    Desc: This function is used to prevent the player from being able to stand on the enemies
+            Essentially.. When the player or ball make contact within the enemies trigger zone, the player or ball will be launched up
+
+    */
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // This is the object that touched the spring
+        GameObject otherObject = collision.gameObject;
+
+        // Apply a force if it has a Rigidbody2D and not already jumping
+        Rigidbody2D rb = otherObject.GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            // Apply an upwards force
+            rb.AddForce(Vector2.up * launchForce, ForceMode2D.Impulse);
         }
     }
     
