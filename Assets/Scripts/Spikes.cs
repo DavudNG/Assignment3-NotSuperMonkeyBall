@@ -62,6 +62,8 @@ public class Spikes : MonoBehaviour
             rb.AddForce(Vector2.up * 20f, ForceMode2D.Impulse);
         }
 
+        isDamaging = false;
+
         // Wait for 0.5 seconds before allowing damage again
         // This is to prevent the player from taking damage every frame while touching the spikes
         yield return new WaitForSeconds(0.01f);
