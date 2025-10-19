@@ -37,7 +37,7 @@ public class Spring : MonoBehaviour
         rb.AddForce(Vector2.up * 15f, ForceMode2D.Impulse);
 
         // Cooldown so force isn't applied every frame the object is touching the spring
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.01f);
 
         // Jump finished
         isJumping = false;

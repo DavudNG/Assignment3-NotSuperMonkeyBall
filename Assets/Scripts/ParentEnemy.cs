@@ -17,6 +17,7 @@ public class ParentEnemy : MonoBehaviour
     [SerializeField] private float BNF_time; // Time between movements for the "BackAndForth" movement type
     private bool colliding; // Bool to check if a collision is occurring
     public Transform player; // Transform for the player's position for the "FollowPlayer" movement type
+    public float followDistance = 15f; // Distance within which the enemy will start following the player
 
     private Rigidbody2D body; // Enemy's Rigidbody2D to control their movement using vectors
 
@@ -33,15 +34,30 @@ public class ParentEnemy : MonoBehaviour
             StartCoroutine(FollowPlayer()); // Start the associated follow player coroutine, which the enemy will forever do
         }
     }
+    
     private IEnumerator FollowPlayer() // IEnumerator for the follow player coroutine
     {
-        while (true) // Infinite loop
+        while (true)
         {
-            Vector3 direction = player.position - transform.position; // Get a vector going towards the player's position from the enemy's position
-            body.linearVelocity = new Vector2(direction.x, 0); // Move in the direction of the player
-            yield return new WaitForSeconds(0.1f); // Wait for 0.1 seconds to avoid crashing
+            // Calculate the distance to the player
+            float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+
+            if (distanceToPlayer > followDistance)
+            {
+                // Too far away – stop moving
+                body.linearVelocity = new Vector2(0, body.linearVelocity.y);
+            }
+            else
+            {
+                // Within follow range – move toward player
+                Vector2 direction = (player.position - transform.position).normalized; // Get direction
+                body.linearVelocity = new Vector2(direction.x * BNF_speed, body.linearVelocity.y);
+            }
+
+            yield return new WaitForSeconds(0.1f); // Small delay to avoid over-updating
         }
     }
+
 
     private IEnumerator BackAndForth() // IEnumerator for the back and forth coroutine
     {
