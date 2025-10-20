@@ -68,17 +68,17 @@ public class SpawnPlayer : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "Level1" && !stopPlaying) // If level 1 is started and no soundtrack is currently playing, play the soundtrack
         {
-            SoundManager.PlaySound(SoundType.LEVEL1MUSIC, 0.1f); // Play the soundtrack at 10% volume
+            SoundManager.PlaySound(SoundType.LEVEL1MUSIC); // Play the soundtrack at 10% volume
             StartCoroutine(level1Coroutine()); // Start the level 1 song cooldown to ensure only 1 instance of the soundtrack plays at a time
         }
         if (SceneManager.GetActiveScene().name == "Level2" && !stopPlaying) // If level 2 is started and no soundtrack is currently playing, play the soundtrack
         {
-            SoundManager.PlaySound(SoundType.LEVEL2MUSIC, 0.1f); // Play the soundtrack at 10% volume
+            SoundManager.PlaySound(SoundType.LEVEL2MUSIC); // Play the soundtrack at 10% volume
             StartCoroutine(level2Coroutine()); // Start the level 2 song cooldown to ensure only 1 instance of the soundtrack plays at a time
         }
         if (SceneManager.GetActiveScene().name == "Level3" && !stopPlaying) // If level 3 is started and no soundtrack is currently playing, play the soundtrack
         {
-            SoundManager.PlaySound(SoundType.LEVEL3MUSIC, 0.1f); // Play the soundtrack at 10% volume
+            SoundManager.PlaySound(SoundType.LEVEL3MUSIC); // Play the soundtrack at 10% volume
             StartCoroutine(level3Coroutine()); // Start the level 3 song cooldown to ensure only 1 instance of the soundtrack plays at a time
         }
     }
