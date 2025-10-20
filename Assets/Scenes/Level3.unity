@@ -7915,6 +7915,10 @@ PrefabInstance:
       propertyPath: m_LinearDamping
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2535813067210848257, guid: 66c534d075f1b234794fcba2f9664e3d, type: 3}
+      propertyPath: difficultyDataScript
+      value: 
+      objectReference: {fileID: 11400000, guid: fbe3ef72978f04847b9b87bbb47eb015, type: 2}
     - target: {fileID: 6270827950342556694, guid: 66c534d075f1b234794fcba2f9664e3d, type: 3}
       propertyPath: m_Name
       value: Player

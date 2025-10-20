@@ -565,6 +565,7 @@ MonoBehaviour:
   - {fileID: 2039104499}
   - {fileID: 221771769}
   - {fileID: 167094830}
+  difficultyDataScript: {fileID: 11400000, guid: fbe3ef72978f04847b9b87bbb47eb015, type: 2}
 --- !u!224 &340773214 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7602620897438734883, guid: 70dd39f0e83f4cd44b1542223e054e32, type: 3}
@@ -2152,6 +2153,7 @@ MonoBehaviour:
   m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
+  m_Version: 2
   m_TaaSettings:
     m_Quality: 3
     m_FrameInfluence: 0.1
@@ -2159,7 +2161,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
-  m_Version: 2
 --- !u!1 &2112647000
 GameObject:
   m_ObjectHideFlags: 0

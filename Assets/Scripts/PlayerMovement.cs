@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     private float knockbackTimer;
     private bool knockedBack;
 
+    [SerializeField] private DifficultyData difficultyDataScript;
+
     public SpriteRenderer myRenderer; // Ref to renderer of the player
     public Animator myAnimator; // Ref to the Animator of the player
     public ParticleSystem myParticleSystem; // Ref to the particle of the player for jumping
@@ -38,6 +40,15 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         isFlipped = true; // flip the player on start cauz monkey faces backwards
+        
+        if (difficultyDataScript.GetJumpForce() == 50)
+        {
+            Debug.Log("screwed up");
+        }
+        else
+        {
+            Debug.Log("passed the vibe check");
+        }
     }
     
     /*
@@ -69,7 +80,8 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space) && isGrounded())
             {
                 SoundManager.PlaySound(SoundType.JUMP); // Play the jump sound when jumping
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // add the jump force to the existing velocity
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, difficultyDataScript.GetJumpForce()); // add the jump force to the existing velocity
+                Debug.Log("jumpforce: " + difficultyDataScript.GetJumpForce());
                 StopParticleEffect(); // clear the particle effect
                 PlayParticleEffect(); // play the particle effect emission
             }
@@ -95,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if (movementInput.magnitude > 0 || movementInput.magnitude < 0) // when the axis input magnitude isnt zero
-            rb.AddForce(movementInput * moveSpeed, ForceMode2D.Force); // add the force 
+            rb.AddForce(movementInput * difficultyDataScript.GetMoveSpeed(), ForceMode2D.Force); // add the force 
     }
         /*
             isGrounded()   
