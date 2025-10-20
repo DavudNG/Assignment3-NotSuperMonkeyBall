@@ -17,6 +17,8 @@ public class ParentEnemy : MonoBehaviour
     [SerializeField] private float BNF_time; // Time between movements for the "BackAndForth" movement type
     private bool colliding; // Bool to check if a collision is occurring
     public Transform player; // Transform for the player's position for the "FollowPlayer" movement type
+    public float followDistance = 15f; // Distance within which the enemy will start following the player
+    public float launchForce = 10f; // Force applied to the player when colliding with the enemy
 
     private Rigidbody2D body; // Enemy's Rigidbody2D to control their movement using vectors
 
@@ -33,15 +35,52 @@ public class ParentEnemy : MonoBehaviour
             StartCoroutine(FollowPlayer()); // Start the associated follow player coroutine, which the enemy will forever do
         }
     }
-    private IEnumerator FollowPlayer() // IEnumerator for the follow player coroutine
+
+    /*
+    
+    OnCollisionEnter2D
+    Author: Angus
+    Desc: This function is used to prevent the player from being able to stand on the enemies
+            Essentially.. When the player or ball make contact within the enemies trigger zone, the player or ball will be launched up
+
+    */
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        while (true) // Infinite loop
+        // This is the object that touched the spring
+        GameObject otherObject = collision.gameObject;
+
+        // Apply a force if it has a Rigidbody2D and not already jumping
+        Rigidbody2D rb = otherObject.GetComponent<Rigidbody2D>();
+        if (rb != null)
         {
-            Vector3 direction = player.position - transform.position; // Get a vector going towards the player's position from the enemy's position
-            body.linearVelocity = new Vector2(direction.x, 0); // Move in the direction of the player
-            yield return new WaitForSeconds(0.1f); // Wait for 0.1 seconds to avoid crashing
+            // Apply an upwards force
+            rb.AddForce(Vector2.up * launchForce, ForceMode2D.Impulse);
         }
     }
+    
+    private IEnumerator FollowPlayer() // IEnumerator for the follow player coroutine
+    {
+        while (true)
+        {
+            // Calculate the distance to the player
+            float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+
+            if (distanceToPlayer > followDistance)
+            {
+                // Too far away – stop moving
+                body.linearVelocity = new Vector2(0, body.linearVelocity.y);
+            }
+            else
+            {
+                // Within follow range – move toward player
+                Vector2 direction = (player.position - transform.position).normalized; // Get direction
+                body.linearVelocity = new Vector2(direction.x * BNF_speed, body.linearVelocity.y);
+            }
+
+            yield return new WaitForSeconds(0.1f); // Small delay to avoid over-updating
+        }
+    }
+
 
     private IEnumerator BackAndForth() // IEnumerator for the back and forth coroutine
     {
