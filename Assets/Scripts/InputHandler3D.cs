@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class InputHandler : MonoBehaviour
+public class InputHandler3D : MonoBehaviour
 {
     public PlayerMovement3D myMovementScript;
 
@@ -22,9 +22,19 @@ public class InputHandler : MonoBehaviour
         Vector2 movementVector = _movementAction.ReadValue<Vector2>();
         myMovementScript.Move(movementVector);
 
-        if(_jumpAction.triggered)
+        if(_jumpAction.IsPressed())
         {
             myMovementScript.Jump();
+        }
+
+        if (_attackAction.triggered)
+        {
+            myMovementScript.Attack();
+        }
+
+        if (_upperAction.triggered)
+        {
+            myMovementScript.Uppercut();
         }
     }
 }
