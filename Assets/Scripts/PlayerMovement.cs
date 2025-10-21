@@ -4,7 +4,8 @@ using UnityEngine;
 /*
     PlayerMovement.cs     
     Co-Authors: James & David
-
+    David: Movement related functions
+    James: Sound and knockback related functions
     Desc: This script outlines the player's movement, and other functions that affect it.
 */
 public class PlayerMovement : MonoBehaviour
