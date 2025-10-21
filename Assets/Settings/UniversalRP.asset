@@ -18,7 +18,8 @@ MonoBehaviour:
   m_RendererData: {fileID: 0}
   m_RendererDataList:
   - {fileID: 11400000, guid: 424799608f7334c24bf367e4bbfa7f9a, type: 2}
-  m_DefaultRendererIndex: 0
+  - {fileID: 11400000, guid: c7a285338bbf62a4d8e3896f96e219e0, type: 2}
+  m_DefaultRendererIndex: 1
   m_RequireDepthTexture: 0
   m_RequireOpaqueTexture: 0
   m_OpaqueDownsampling: 1
@@ -41,7 +42,7 @@ MonoBehaviour:
   m_SupportProbeVolumeScenarios: 0
   m_SupportProbeVolumeScenarioBlending: 0
   m_ProbeVolumeSHBands: 1
-  m_MainLightRenderingMode: 1
+  m_MainLightRenderingMode: 0
   m_MainLightShadowsSupported: 1
   m_MainLightShadowmapResolution: 2048
   m_AdditionalLightsRenderingMode: 1
