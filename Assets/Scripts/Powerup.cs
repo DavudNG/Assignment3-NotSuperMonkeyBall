@@ -10,6 +10,7 @@ using UnityEngine;
 */
 public class Powerup : MonoBehaviour
 {
+    public PlayerData2D playerData2D;
     private void OnCollisionEnter2D(Collision2D collision) // When an object collides with the object this script is attached to
     {
         if (gameObject.GetComponent<PlayerMovement>()) { // If the object colliding has the player movement component (is a player)
