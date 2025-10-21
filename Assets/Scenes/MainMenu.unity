@@ -783,7 +783,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1564126181}
         m_TargetAssemblyTypeName: SceneManagerScript, Assembly-CSharp
-        m_MethodName: LoadSettings
+        m_MethodName: LoadScene
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1189,7 +1189,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1564126181}
         m_TargetAssemblyTypeName: SceneManagerScript, Assembly-CSharp
-        m_MethodName: LoadSelectLevel
+        m_MethodName: LoadScene
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1266,6 +1266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 419fd862390322f47aa0bc230a417590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficultyDataScript: {fileID: 11400000, guid: fbe3ef72978f04847b9b87bbb47eb015, type: 2}
 --- !u!4 &1564126182
 Transform:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ public class DeathMenuScript : MonoBehaviour
 
 {
     public GameObject deathScreen;
+    [SerializeField] private DifficultyData difficultyDataScript;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,6 +38,7 @@ public class DeathMenuScript : MonoBehaviour
         // This loads the current scene again, replacing the current instance of the level
         // This gives the illusion of a "restart"
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        difficultyDataScript.sceneChangeCheck();
     }
 
     // This is for the main menu button. This will take the player back to the main menu scene
@@ -46,5 +48,6 @@ public class DeathMenuScript : MonoBehaviour
         Time.timeScale = 1f;
         // This loads the main menu scene, which is at index 0 in the build settings
         SceneManager.LoadScene(0);
+        difficultyDataScript.sceneChangeCheck();
     }
 }

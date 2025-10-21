@@ -5,6 +5,7 @@ public class MenuMusic : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private bool stopPlaying = false; // Bool to stop the execution of another soundtrack after one has already been started
+    private bool gameStart = false;
     [SerializeField] private DifficultyData difficultyDataScript;
     void Start()
     {
@@ -15,6 +16,11 @@ public class MenuMusic : MonoBehaviour
         else
         {
             Debug.Log("passed the vibe check");
+        }
+        if (gameStart == false)
+        {
+            PlayerPrefs.SetString("difficulty", "easy");
+            gameStart = true;
         }
         
         //Debug.Log("jumpforce: " + difficultyDataScript.GetJumpForce());

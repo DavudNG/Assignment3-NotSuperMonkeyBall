@@ -2963,6 +2963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 419fd862390322f47aa0bc230a417590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficultyDataScript: {fileID: 11400000, guid: fbe3ef72978f04847b9b87bbb47eb015, type: 2}
 --- !u!4 &1754912291
 Transform:
   m_ObjectHideFlags: 0
@@ -3146,7 +3147,7 @@ PrefabInstance:
       objectReference: {fileID: 1754912290}
     - target: {fileID: 6273794071033405449, guid: 70dd39f0e83f4cd44b1542223e054e32, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadTitleScreen
+      value: LoadScene
       objectReference: {fileID: 0}
     - target: {fileID: 7602620897438734883, guid: 70dd39f0e83f4cd44b1542223e054e32, type: 3}
       propertyPath: m_Pivot.x

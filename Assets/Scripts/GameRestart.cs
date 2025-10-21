@@ -10,6 +10,7 @@ using UnityEngine.SceneManagement;
 */
 public class GameRestart : MonoBehaviour
 {
+    [SerializeField] private DifficultyData difficultyDataScript;
 
     // Update is called once per frame
     // We use update to monitor inputs
@@ -21,6 +22,7 @@ public class GameRestart : MonoBehaviour
         {
             // We restart the level by replacing the current instance of the scene with an initialzed one
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            difficultyDataScript.sceneChangeCheck();
         }
     }
 }
