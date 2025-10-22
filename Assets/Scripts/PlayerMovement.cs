@@ -163,12 +163,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void Explode(Vector2 force, float duration) // Public method that other objects can call on collision to trigger an "explosion"
     {
+        Debug.Log("yo ts lowk worked");
         StartCoroutine(ExplodeCoroutine(force, duration)); // Start the explosion coroutine to disable movement for a time period
     }
 
     private IEnumerator ExplodeCoroutine(Vector2 force, float duration) // Explosion coroutine called by the Explode method
     {
         knockedBack = true; // knockedBack set to true disables movement
+        Debug.Log("yo ts lowk worked ADDING FORCER");
         rb.AddForce(force, ForceMode2D.Impulse); // Adds a force to the player to "explode" them away
         yield return new WaitForSeconds(duration); // Wait for a selected amount of time
         knockedBack = false; // Enable player movement again by setting knockedBack back to false after the time period has elapsed

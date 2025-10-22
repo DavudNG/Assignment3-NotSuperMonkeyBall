@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class InputHandler : MonoBehaviour
 {
-    public PlayerMovement3D myMovementScript;
+    //public PlayerMovement3D myMovementScript;
 
     private InputAction movementAction , movementaction2;
 
