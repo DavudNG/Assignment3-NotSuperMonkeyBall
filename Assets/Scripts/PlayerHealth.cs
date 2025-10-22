@@ -10,8 +10,8 @@ using System.Collections;
 */
 public class PlayerHealth : MonoBehaviour
 {
-    // Initialize the players health at 3
-    public int health = 3;
+    public PlayerData2D myPlayerData;
+    public int health;
 
     // Hitflash variables
     public SpriteRenderer myRenderer; // Ref to the renderer of the player
@@ -22,6 +22,7 @@ public class PlayerHealth : MonoBehaviour
     
     void Start() {
         origColor = myRenderer.color; // grab the original colour from the renderer
+        health = myPlayerData.health; // Initialize the players health
     }
 
     //  We don't need anything here

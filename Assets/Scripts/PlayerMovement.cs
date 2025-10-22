@@ -15,10 +15,12 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce; // float jump strength of the player
     private float knockbackTimer;
     private bool knockedBack;
+    private float move = 0;
 
     public SpriteRenderer myRenderer; // Ref to renderer of the player
     public Animator myAnimator; // Ref to the Animator of the player
     public ParticleSystem myParticleSystem; // Ref to the particle of the player for jumping
+    public PlayerData2D myPlayerData2D;
 
     private Vector2 movementInput; // Vector 2 to store the movement input vector
     public Vector2 raySize; // size of the ray cast to use
@@ -38,6 +40,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         isFlipped = true; // flip the player on start cauz monkey faces backwards
+        moveSpeed = myPlayerData2D.moveSpeed;
+        jumpForce = myPlayerData2D.jumpForce;
     }
     
     /*
@@ -60,19 +64,19 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(soundCoroutine()); // Start the walk sound coroutine to ensure only 1 plays at a time
         }
 
-        float move = Input.GetAxis("Horizontal");  // store the input axis vector
+        //float move = Input.GetAxis("Horizontal");  // store the input axis vector
 
         if (!knockedBack) // If not currently getting knocked back (getting knocked back disables movement for a time period)
         {
             movementInput = new Vector2(move, 0); // grab the x magnitude from move and create a new vector 2
 
-            if (Input.GetKeyDown(KeyCode.Space) && isGrounded())
-            {
-                SoundManager.PlaySound(SoundType.JUMP); // Play the jump sound when jumping
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // add the jump force to the existing velocity
-                StopParticleEffect(); // clear the particle effect
-                PlayParticleEffect(); // play the particle effect emission
-            }
+            //if (Input.GetKeyDown(KeyCode.Space) && isGrounded())
+            //{
+            //    SoundManager.PlaySound(SoundType.JUMP); // Play the jump sound when jumping
+            //    rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // add the jump force to the existing velocity
+            //    StopParticleEffect(); // clear the particle effect
+            //    PlayParticleEffect(); // play the particle effect emission
+            //}
 
             myAnimator.SetFloat("speed", Mathf.Abs(movementInput.x)); // sets the paramater in animation statemachine for the animation to play move
             myAnimator.SetFloat("vertical_speed", rb.linearVelocity.y); // sets the paramater in animation statemachine for the animation to play jump
@@ -95,7 +99,25 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if (movementInput.magnitude > 0 || movementInput.magnitude < 0) // when the axis input magnitude isnt zero
-            rb.AddForce(movementInput * moveSpeed, ForceMode2D.Force); // add the force 
+            rb.AddForce(movementInput * myPlayerData2D.moveSpeed, ForceMode2D.Force); // add the force 
+    }
+
+    public void Move(Vector2 movementVector)
+    {
+        move = movementVector.x;
+    }
+
+    /*
+        Jump()   
+        Author: David
+        Desc: function to make the char jump and do related functions, jump sounds and particle effects
+    */
+    public void Jump()
+    {
+        SoundManager.PlaySound(SoundType.JUMP); // Play the jump sound when jumping
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // add the jump force to the existing velocity
+        StopParticleEffect(); // clear the particle effect
+        PlayParticleEffect(); // play the particle effect emission
     }
         /*
             isGrounded()   
