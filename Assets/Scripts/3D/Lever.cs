@@ -11,11 +11,14 @@ public class Lever : MonoBehaviour
     public GameObject targetObject;
     // A reference to the player - so the script knows when we are in radius
     private Transform player;
+    private bool isActive = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        targetObject.SetActive(isActive);
     }
 
     // Update is called once per frame
@@ -34,6 +37,15 @@ public class Lever : MonoBehaviour
                 Interact();
             }
         }
+        
+        // Once the lever is active, the bridge should always be on
+        //  We don't want to continuosly set the bridge to off is the lever is not active
+        //  Otherwise, the pressure plate would not work
+        if(isActive == true)
+        {
+            // Set the target object active state based on isActive bool
+            targetObject.SetActive(isActive);
+        }
     }
 
     void Interact()
@@ -42,7 +54,7 @@ public class Lever : MonoBehaviour
         if (targetObject != null)
         {
             // Toggle the target object's active state
-            targetObject.SetActive(!targetObject.activeSelf);
+            isActive = !isActive;
         }
     }
 }
