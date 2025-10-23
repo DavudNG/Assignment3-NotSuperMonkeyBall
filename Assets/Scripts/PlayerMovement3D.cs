@@ -1,4 +1,7 @@
+using System.Collections;
 using UnityEngine;
+
+[RequireComponent(typeof(Rigidbody))]
 
 public class PlayerMovement3D : MonoBehaviour
 {
@@ -13,11 +16,14 @@ public class PlayerMovement3D : MonoBehaviour
     public LayerMask groundLayer; // ref to the groundlayer tag
     public LayerMask interactableLayer; // ref to the interactable layer tag
     public float pushPower = 2.0f; // power to push rigidbodies when colliding with them
+    public ParticleSystem landParticles;
+    public ParticleSystem attackParticles;
+    private bool landPartOnce = false;
+    private int attackPartAfter = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -72,11 +78,22 @@ public class PlayerMovement3D : MonoBehaviour
 
     public void Jump()
     {
-        if(currentJumpTime < myPlayerData.maxJumpTime)
+        if (currentJumpTime < myPlayerData.maxJumpTime)
         {
+            Debug.Log("when does this play");
+            landPartOnce = true;
             myCharacterController.Move(new Vector3(0, myPlayerData.jumpForce * myPlayerData.jumpForceMultiplier * Time.deltaTime, 0));
             currentJumpTime += Time.deltaTime;
         }
+    }
+    IEnumerator attackPartCoroutine()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Vector3 offset = transform.forward * 1.3f + transform.right * 1.1f + Vector3.up * 1.15f;
+        attackParticles.transform.position = transform.position + offset;
+        attackParticles.transform.rotation = Quaternion.LookRotation(-transform.forward, Vector3.up);
+        attackParticles.Play();
+        attackPartAfter = 0;
     }
 
     public void Attack()
@@ -85,8 +102,10 @@ public class PlayerMovement3D : MonoBehaviour
         {
             myAnimator.SetTrigger("isAttacking");
             currentAttackTimer = myPlayerData.attackCooldown;
+            StartCoroutine(attackPartCoroutine());
         }
     }
+
 
     public void Uppercut()
     {
@@ -103,6 +122,12 @@ public class PlayerMovement3D : MonoBehaviour
         // checks whether the raycast returns true if it collides with either the groundlayer or interactable
         if (Physics.Raycast(transform.position, Vector3.down, castDistance, groundLayer) || Physics.Raycast(transform.position, Vector3.down, castDistance, interactableLayer))
         {
+            if (landPartOnce == true)
+            {
+                landParticles.transform.position = transform.position;
+                landParticles.Play();
+                landPartOnce = false;
+            }
             // if true
             currentJumpTime = 0; // reset current jump timer
             return true;
