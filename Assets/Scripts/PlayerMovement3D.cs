@@ -18,8 +18,8 @@ public class PlayerMovement3D : MonoBehaviour
     public float pushPower = 2.0f; // power to push rigidbodies when colliding with them
     public ParticleSystem landParticles;
     public ParticleSystem attackParticles;
+    public ParticleSystem uppercutParticles;
     private bool landPartOnce = false;
-    private int attackPartAfter = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -93,7 +93,6 @@ public class PlayerMovement3D : MonoBehaviour
         attackParticles.transform.position = transform.position + offset;
         attackParticles.transform.rotation = Quaternion.LookRotation(-transform.forward, Vector3.up);
         attackParticles.Play();
-        attackPartAfter = 0;
     }
 
     public void Attack()
@@ -105,6 +104,14 @@ public class PlayerMovement3D : MonoBehaviour
             StartCoroutine(attackPartCoroutine());
         }
     }
+    IEnumerator uppercutPartCoroutine()
+    {
+        yield return new WaitForSeconds(0.6f);
+        Vector3 offset = transform.forward * 0.6f + transform.right * -1.1f + Vector3.up * 1.35f;
+        uppercutParticles.transform.position = transform.position + offset;
+        uppercutParticles.transform.rotation = Quaternion.LookRotation(-transform.forward, Vector3.up);
+        uppercutParticles.Play();
+    }
 
 
     public void Uppercut()
@@ -113,6 +120,7 @@ public class PlayerMovement3D : MonoBehaviour
         {
             myAnimator.SetTrigger("isUppercutting");
             currentAttackTimer = myPlayerData.attackCooldown;
+            StartCoroutine(uppercutPartCoroutine());
         }
     }
 
