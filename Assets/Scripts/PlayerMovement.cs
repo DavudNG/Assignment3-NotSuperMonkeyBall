@@ -70,14 +70,6 @@ public class PlayerMovement : MonoBehaviour
         {
             movementInput = new Vector2(move, 0); // grab the x magnitude from move and create a new vector 2
 
-            //if (Input.GetKeyDown(KeyCode.Space) && isGrounded())
-            //{
-            //    SoundManager.PlaySound(SoundType.JUMP); // Play the jump sound when jumping
-            //    rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // add the jump force to the existing velocity
-            //    StopParticleEffect(); // clear the particle effect
-            //    PlayParticleEffect(); // play the particle effect emission
-            //}
-
             myAnimator.SetFloat("speed", Mathf.Abs(movementInput.x)); // sets the paramater in animation statemachine for the animation to play move
             myAnimator.SetFloat("vertical_speed", rb.linearVelocity.y); // sets the paramater in animation statemachine for the animation to play jump
             myAnimator.SetBool("grounded", isGrounded()); // sets the paramater in animation statemachine for the animation to return to idle
