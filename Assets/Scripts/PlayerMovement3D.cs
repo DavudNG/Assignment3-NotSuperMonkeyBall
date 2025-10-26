@@ -16,6 +16,7 @@ public class PlayerMovement3D : MonoBehaviour
     public float castDistance; // off set of the ray cast to use
     public LayerMask groundLayer; // ref to the groundlayer tag
     public LayerMask interactableLayer; // ref to the interactable layer tag
+    public float pushPower = 2.0f; // power to push rigidbodies when colliding with them
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -146,15 +147,35 @@ public class PlayerMovement3D : MonoBehaviour
                     Physics.Raycast(transform.position, Vector3.down, castDistance, interactableLayer))
             {
             // if true
-                currentJumpTime = 0; // reset current jump timer
-                return true;
-            }
+            currentJumpTime = 0; // reset current jump timer
+            return true;
+        }
 
-            else
-            {
-                // if nothing
-                return false;
-            }
+        else
+        {
+            // if nothing
+            return false;
+        }
+    }
+    
+    // From AI
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        Rigidbody body = hit.collider.attachedRigidbody;
+
+        // no rigidbody, no push
+        if (body == null || body.isKinematic)
+            return;
+
+        // We don't want to push things below us (like the floor)
+        if (hit.moveDirection.y < -0.3f)
+            return;
+
+        // Calculate the push direction (horizontal only)
+        Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
+
+        // Apply the push force to the rigidbody
+        body.AddForce(pushDir * pushPower, ForceMode.VelocityChange);
     }
 
     //debug raycast draw gizmo
