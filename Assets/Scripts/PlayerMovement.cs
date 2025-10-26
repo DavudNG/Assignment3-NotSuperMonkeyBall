@@ -5,7 +5,8 @@ using UnityEngine;
 /*
     PlayerMovement.cs     
     Co-Authors: James & David
-
+    David: Movement related functions
+    James: Sound and knockback related functions
     Desc: This script outlines the player's movement, and other functions that affect it.
 */
 public class PlayerMovement : MonoBehaviour
@@ -15,12 +16,14 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce; // float jump strength of the player
     private float knockbackTimer;
     private bool knockedBack;
+    private float move = 0;
 
     [SerializeField] private DifficultyData difficultyDataScript;
 
     public SpriteRenderer myRenderer; // Ref to renderer of the player
     public Animator myAnimator; // Ref to the Animator of the player
     public ParticleSystem myParticleSystem; // Ref to the particle of the player for jumping
+    public PlayerData2D myPlayerData2D;
 
     private Vector2 movementInput; // Vector 2 to store the movement input vector
     public Vector2 raySize; // size of the ray cast to use
@@ -40,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         isFlipped = true; // flip the player on start cauz monkey faces backwards
-        
+
         if (difficultyDataScript.GetJumpForce() == 50)
         {
             Debug.Log("screwed up");
@@ -49,6 +52,10 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log("passed the vibe check");
         }
+
+        moveSpeed = myPlayerData2D.moveSpeed;
+        jumpForce = myPlayerData2D.jumpForce;
+
     }
     
     /*
@@ -71,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(soundCoroutine()); // Start the walk sound coroutine to ensure only 1 plays at a time
         }
 
-        float move = Input.GetAxis("Horizontal");  // store the input axis vector
+        //float move = Input.GetAxis("Horizontal");  // store the input axis vector
 
         if (!knockedBack) // If not currently getting knocked back (getting knocked back disables movement for a time period)
         {
@@ -107,7 +114,25 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if (movementInput.magnitude > 0 || movementInput.magnitude < 0) // when the axis input magnitude isnt zero
-            rb.AddForce(movementInput * difficultyDataScript.GetMoveSpeed(), ForceMode2D.Force); // add the force 
+            rb.AddForce(movementInput * myPlayerData2D.moveSpeed, ForceMode2D.Force); // add the force 
+    }
+
+    public void Move(Vector2 movementVector)
+    {
+        move = movementVector.x;
+    }
+
+    /*
+        Jump()   
+        Author: David
+        Desc: function to make the char jump and do related functions, jump sounds and particle effects
+    */
+    public void Jump()
+    {
+        SoundManager.PlaySound(SoundType.JUMP); // Play the jump sound when jumping
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // add the jump force to the existing velocity
+        StopParticleEffect(); // clear the particle effect
+        PlayParticleEffect(); // play the particle effect emission
     }
         /*
             isGrounded()   

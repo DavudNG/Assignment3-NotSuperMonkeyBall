@@ -4835,8 +4835,6 @@ ParticleSystemRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4858,7 +4856,6 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
@@ -4988,6 +4985,7 @@ GameObject:
   - component: {fileID: 1297636685249407809}
   - component: {fileID: 932260860571765439}
   - component: {fileID: -5839322945796226288}
+  - component: {fileID: 9048947577347308606}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5102,6 +5100,7 @@ MonoBehaviour:
   myRenderer: {fileID: 932260860571765439}
   myAnimator: {fileID: 1297636685249407809}
   myParticleSystem: {fileID: 1195633126691841970}
+  myPlayerData2D: {fileID: 11400000, guid: 3cf445af965261c42b47f470180f60b4, type: 2}
   raySize: {x: 1, y: 0.1}
   castDistance: 0.5
   groundLayer:
@@ -5154,8 +5153,6 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5177,7 +5174,6 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -5204,9 +5200,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bf6b6c451cc8504c9e3de0428c969ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  myPlayerData: {fileID: 11400000, guid: 3cf445af965261c42b47f470180f60b4, type: 2}
   health: 3
   myRenderer: {fileID: 932260860571765439}
   flashTime: 0.2
+--- !u!114 &9048947577347308606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6270827950342556694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4527aa418fbd8654db5daad386890d13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myMovementScript: {fileID: 2535813067210848257}
+  myAttackScript: {fileID: 5755465738266472392}
 --- !u!1 &8789442413608784062
 GameObject:
   m_ObjectHideFlags: 0
@@ -5283,8 +5294,6 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5306,7 +5315,6 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -5338,10 +5346,7 @@ MonoBehaviour:
   myAnimator: {fileID: 187298055148906715}
   myRenderer: {fileID: 4455319230096314895}
   isAttackReady: 0
-  attackCooldownCount: 0
   attackCooldown: 1
-  attackTimer: 0
-  attackTimerMax: 0.3
   InteractableLayer:
     serializedVersion: 2
     m_Bits: 64
