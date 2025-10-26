@@ -13,7 +13,6 @@ public class PlayerAttack : MonoBehaviour
     public SpriteRenderer myRenderer; // Ref to the renderer of the attackanimation
 
     public bool isAttackReady; // Bool to check whether the player is ready to atk and to stop atks starting if it isnt
-
     private float attackCooldownCount; // The current attack cooldown timer
     public float attackCooldown; // The max attack cooldown timer
 
@@ -32,7 +31,7 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isAttackReady) // check if atk ready is true
+        /*if (isAttackReady) // check if atk ready is true
         {
             if (Input.GetKeyDown(KeyCode.Q)) // when Q is pressed
             {
@@ -40,14 +39,14 @@ public class PlayerAttack : MonoBehaviour
                 myAnimator.SetBool("isKick", true); // sets the kick parameter to control the player animator statemachine
                 isAttackReady = false; // set flag for atk ready to false
             }
-
+        
             if (Input.GetKeyDown(KeyCode.E)) // When E is pressed 
             {
                 myAnimator.SetBool("isUppercut", true); // sets the uppercut parameter to control the player animator statemachine
                 isAttackReady = false; // set flag for atk ready to false
             }
         }
-
+        */
 
         if (attackCooldownCount <= 0) // if the atk cooldown is 0 or less
         {
@@ -58,12 +57,43 @@ public class PlayerAttack : MonoBehaviour
             attackCooldownCount -= Time.deltaTime; // decrement the count 
         }
     }
+    
+    /*
+        TryAttack() 
+        Author: David
+        Desc: function to call the kick action, sets the flag for animator state and applies the attack cooldown. 
+    */
+    public void TryAttack()
+    {
+        if (isAttackReady) // check if atk ready is true
+        {
+            myRenderer.flipX = false; // flips the renderer back to default 
+            myAnimator.SetBool("isKick", true); // sets the kick parameter to control the player animator statemachine
+            isAttackReady = false; // set flag for atk ready to false
+            attackCooldownCount = attackCooldown; // reset the cooldown to max
+        }
+    }
+
+    /*
+        TryUppercut() 
+        Author: David
+        Desc: function to call the uppercut action, sets the flag for animator state and applies the attack cooldown. 
+    */
+    public void TryUppercut()
+    {
+        if (isAttackReady) // check if atk ready is true
+        {
+            myAnimator.SetBool("isUppercut", true); // sets the uppercut parameter to control the player animator statemachine
+            isAttackReady = false; // set flag for atk ready to false
+            attackCooldownCount = attackCooldown; // reset the cooldown to max
+        }
+    }
 
     /*
         Attack() 
         Author: David
-        Desc: function for the kick action, sets the flag for animator state and ray casts forward or backward based on facing, 
-        calls the kick function on objects hit with the raycast if any. 
+        Desc: function for the kick action, consumes and resets the flag for animator state and 
+        ray casts forward or backward based on facing, calls the kick function on objects hit with the raycast if any. 
     */
     public void Attack()
     {
@@ -91,14 +121,13 @@ public class PlayerAttack : MonoBehaviour
         {
             attackTest.collider.GetComponent<Ball>().Kick(myPlayer.GetFlipped()); //call kick method from objects in the list
         }
-        attackCooldownCount = attackCooldown; // set the cooldown count to the max cooldown 
     }
 
     /*
         Attack2() 
         Author: David
-        Desc: function for the launch action, sets the animator parameter, checks whether the player is flipped, performs a ray cast and 
-        calls launch on objects hit.
+        Desc: function for the launch action, consumes and resets the animator parameter, 
+        checks whether the player is flipped, performs a ray cast and calls launch on objects hit.
     */
     public void Attack2()
     {
@@ -125,7 +154,7 @@ public class PlayerAttack : MonoBehaviour
         {
             attackTest.collider.GetComponent<Ball>().Launch(myPlayer.GetFlipped()); // call launch method from objects in the list
         }
-        attackCooldownCount = attackCooldown; // reset the cooldown to max
+  
     }
 
 
