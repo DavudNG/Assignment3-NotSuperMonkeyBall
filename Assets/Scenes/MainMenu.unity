@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b97d9fac160c11743a15fb5b0dd38524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuMusic
+  difficultyDataScript: {fileID: 11400000, guid: fbe3ef72978f04847b9b87bbb47eb015, type: 2}
 --- !u!4 &123298479
 Transform:
   m_ObjectHideFlags: 0
@@ -782,7 +783,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1564126181}
         m_TargetAssemblyTypeName: SceneManagerScript, Assembly-CSharp
-        m_MethodName: LoadSettings
+        m_MethodName: LoadScene
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -959,6 +960,7 @@ MonoBehaviour:
   m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
+  m_Version: 2
   m_TaaSettings:
     m_Quality: 3
     m_FrameInfluence: 0.1
@@ -966,7 +968,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
-  m_Version: 2
 --- !u!1001 &1156776038
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1015,6 +1016,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1625904175441865867, guid: 287c0539cc2b6694c88c83276081a2b3, type: 3}
+      propertyPath: volumeDataScript
+      value: 
+      objectReference: {fileID: 11400000, guid: 4483469612561fd42844a1957fdf150d, type: 2}
     - target: {fileID: 8693033789888938336, guid: 287c0539cc2b6694c88c83276081a2b3, type: 3}
       propertyPath: m_Name
       value: SoundManagerObject
@@ -1184,7 +1189,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1564126181}
         m_TargetAssemblyTypeName: SceneManagerScript, Assembly-CSharp
-        m_MethodName: LoadSelectLevel
+        m_MethodName: LoadScene
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1261,6 +1266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 419fd862390322f47aa0bc230a417590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficultyDataScript: {fileID: 11400000, guid: fbe3ef72978f04847b9b87bbb47eb015, type: 2}
 --- !u!4 &1564126182
 Transform:
   m_ObjectHideFlags: 0

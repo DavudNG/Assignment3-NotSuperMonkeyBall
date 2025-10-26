@@ -7,6 +7,7 @@ public class PauseMenuScript : MonoBehaviour
     //sets pauseMenu as canvas overlay
     public GameObject pauseMenu;
     public static bool isPaused;
+    [SerializeField] private DifficultyData difficultyDataScript;
 
     void Start()
     {
@@ -49,9 +50,10 @@ public class PauseMenuScript : MonoBehaviour
     }
 
     //button to allow user to return to main menu
-    public void GoToMainMenu(int sceneNumber)
+    public void GoToMainMenu()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
+        difficultyDataScript.sceneChangeCheck();
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -16,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     private float knockbackTimer;
     private bool knockedBack;
     private float move = 0;
+
+    [SerializeField] private DifficultyData difficultyDataScript;
 
     public SpriteRenderer myRenderer; // Ref to renderer of the player
     public Animator myAnimator; // Ref to the Animator of the player
@@ -40,8 +43,19 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         isFlipped = true; // flip the player on start cauz monkey faces backwards
+
+        if (difficultyDataScript.GetJumpForce() == 50)
+        {
+            Debug.Log("screwed up");
+        }
+        else
+        {
+            Debug.Log("passed the vibe check");
+        }
+
         moveSpeed = myPlayerData2D.moveSpeed;
         jumpForce = myPlayerData2D.jumpForce;
+
     }
     
     /*
@@ -69,6 +83,15 @@ public class PlayerMovement : MonoBehaviour
         if (!knockedBack) // If not currently getting knocked back (getting knocked back disables movement for a time period)
         {
             movementInput = new Vector2(move, 0); // grab the x magnitude from move and create a new vector 2
+
+            if (Input.GetKeyDown(KeyCode.Space) && isGrounded())
+            {
+                SoundManager.PlaySound(SoundType.JUMP); // Play the jump sound when jumping
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, difficultyDataScript.GetJumpForce()); // add the jump force to the existing velocity
+                Debug.Log("jumpforce: " + difficultyDataScript.GetJumpForce());
+                StopParticleEffect(); // clear the particle effect
+                PlayParticleEffect(); // play the particle effect emission
+            }
 
             myAnimator.SetFloat("speed", Mathf.Abs(movementInput.x)); // sets the paramater in animation statemachine for the animation to play move
             myAnimator.SetFloat("vertical_speed", rb.linearVelocity.y); // sets the paramater in animation statemachine for the animation to play jump
@@ -165,12 +188,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void Explode(Vector2 force, float duration) // Public method that other objects can call on collision to trigger an "explosion"
     {
+        Debug.Log("yo ts lowk worked");
         StartCoroutine(ExplodeCoroutine(force, duration)); // Start the explosion coroutine to disable movement for a time period
     }
 
     private IEnumerator ExplodeCoroutine(Vector2 force, float duration) // Explosion coroutine called by the Explode method
     {
         knockedBack = true; // knockedBack set to true disables movement
+        Debug.Log("yo ts lowk worked ADDING FORCER");
         rb.AddForce(force, ForceMode2D.Impulse); // Adds a force to the player to "explode" them away
         yield return new WaitForSeconds(duration); // Wait for a selected amount of time
         knockedBack = false; // Enable player movement again by setting knockedBack back to false after the time period has elapsed

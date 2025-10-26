@@ -14,6 +14,7 @@ public class FinishLevelScript : MonoBehaviour
 
     // Initiate the actual Panel which contains all of the UI we need to show
     public GameObject finishLevelScreen;
+    [SerializeField] private DifficultyData difficultyDataScript;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -41,6 +42,7 @@ public class FinishLevelScript : MonoBehaviour
         // This loads the current scene again, replacing the current instance of the level
         // This gives the illusion of a "restart"
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        difficultyDataScript.sceneChangeCheck();
     }
 
     // This handles the main menu
@@ -51,6 +53,7 @@ public class FinishLevelScript : MonoBehaviour
         Time.timeScale = 1f;
         // Load the main menu scene, which is at index 0 in the build settings
         SceneManager.LoadScene(0);
+        difficultyDataScript.sceneChangeCheck();
     }
 
     // This handles the next level button
@@ -65,6 +68,7 @@ public class FinishLevelScript : MonoBehaviour
         Time.timeScale = 1f;
         // Load the next level by loading the scene with the current index + 1, or the 'next' scene
         SceneManager.LoadScene(currentScene + 1);
+        difficultyDataScript.sceneChangeCheck();
     }
 
     // This funntion is called when the script starts, or when the player completes the level
