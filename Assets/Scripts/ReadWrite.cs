@@ -13,7 +13,7 @@ using UnityEngine;
 
 public class ReadWrite : MonoBehaviour
 {
-    public static string filePath = "MyPath.txt"; // Get the file path to the text file
+    public static string filePath = "conf.txt"; // Get the file path to the text file
     public static bool CheckAttribute(String attribute) // Function to return true or false according to the value of a key in the text file
     {
         using (StreamReader reader = new StreamReader(filePath)) // Open a StreamReader to get the text file data
