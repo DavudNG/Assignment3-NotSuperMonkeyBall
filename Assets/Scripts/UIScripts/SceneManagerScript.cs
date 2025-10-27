@@ -4,41 +4,45 @@ using UnityEngine.SceneManagement;
 public class SceneManagerScript : MonoBehaviour
 {
 
+    [SerializeField] private DifficultyData difficultyDataScript;
+
     void Start()
     {
 
     }
 
     //each method is used in a button to load its specific scene number.
-    public void LoadSelectLevel(int sceneNumber)
+    
+    public void LoadScene(int sceneNumber)
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(sceneNumber);
+        difficultyDataScript.sceneChangeCheck();
     }
 
-    public void LoadLevel1(int sceneNumber)
-    {
-        SceneManager.LoadScene(2);
-    }
+    //public void LoadLevel1(int sceneNumber)
+    //{
+    //    SceneManager.LoadScene(2);
+    //}
 
-    public void LoadLevel2(int sceneNumber)
-    {
-        SceneManager.LoadScene(3);
-    }
+    //public void LoadLevel2(int sceneNumber)
+    //{
+    //    SceneManager.LoadScene(3);
+    //}
 
-    public void LoadLevel3(int sceneNumber)
-    {
-        SceneManager.LoadScene(4);
-    }
+    //public void LoadLevel3(int sceneNumber)
+    //{
+    //    SceneManager.LoadScene(4);
+    //}
 
-    public void LoadSettings(int sceneNumber)
-    {
-        SceneManager.LoadScene(5);
-    }
+    //public void LoadSettings(int sceneNumber)
+    //{
+    //    SceneManager.LoadScene(5);
+    //}
 
-    public void LoadTitleScreen(int sceneNumber)
-    {
-        SceneManager.LoadScene(0);
-    }
+    //public void LoadTitleScreen(int sceneNumber)
+    //{
+    //    SceneManager.LoadScene(0);
+    //}
 
     public void changeGlobalFonts()
     {

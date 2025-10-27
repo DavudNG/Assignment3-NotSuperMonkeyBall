@@ -5,8 +5,26 @@ public class MenuMusic : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private bool stopPlaying = false; // Bool to stop the execution of another soundtrack after one has already been started
+    private bool gameStart = false;
+    [SerializeField] private DifficultyData difficultyDataScript;
     void Start()
     {
+        if (difficultyDataScript.GetJumpForce() == 50)
+        {
+            Debug.Log("screwed up");
+        }
+        else
+        {
+            Debug.Log("passed the vibe check");
+        }
+        if (gameStart == false)
+        {
+            PlayerPrefs.SetString("difficulty", "easy");
+            gameStart = true;
+        }
+        
+        //Debug.Log("jumpforce: " + difficultyDataScript.GetJumpForce());
+        //Debug.Log("movespeed: " + difficultyDataScript.GetMoveSpeed());
     }
     IEnumerator soundCoroutine() // Coroutine to stop the update method for 68 seconds
     {

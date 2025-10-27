@@ -1,4 +1,5 @@
 using UnityEngine;
+
 /*
     PlayerAttack.cs     
     Author: David
@@ -18,15 +19,48 @@ public class PlayerMovement3D : MonoBehaviour
     public LayerMask interactableLayer; // ref to the interactable layer tag
     public float pushPower = 2.0f; // power to push rigidbodies when colliding with them
 
+    [Tooltip("Impulse strength applied upward on Start")]
+    public float jumpForce = 500f;
+    public ParticleSystem particleSystem;
+    private int i = 0;
+
+    private Rigidbody rb;
+
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
-        
+        // Safety checks
+        if (rb == null)
+        {
+            Debug.LogError("No Rigidbody found on " + gameObject.name);
+            return;
+        }
+
+        // Apply an instant upward impulse so the object 'jumps' immediately
+        //rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnCollisionEnter(Collision collision)
     {
+        if (i < 3)
+        {
+            i++;
+            return;
+        }
+        else
+        {
+            Debug.Log("did this play");
+            particleSystem.transform.position = transform.position;
+            particleSystem.Play();
+        }
+}
+
+  void Update(){
         // sets the grounded paramater in animation statemachine for the animation to play jump and land related anim
         myAnimator.SetBool("isGrounded", isGrounded());
         

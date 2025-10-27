@@ -1,0 +1,5 @@
+isSlowed=true
+isSlippery=false
+isMoonGrav=false
+isColourblind=false
+volume=1
