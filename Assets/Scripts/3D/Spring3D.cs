@@ -34,6 +34,9 @@ public class Spring3D : MonoBehaviour
             // Start the jump coroutine
             StartCoroutine(jump(rb));
         }
+
+        // Play the key collection sound
+        SoundManager.PlaySound(SoundType.POWERUP);
     }
 
     IEnumerator jump(Rigidbody rb)
