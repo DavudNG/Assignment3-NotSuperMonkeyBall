@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class JumpPowerup : MonoBehaviour
 {
+    // What powerup data this powerup uses
+    public PowerupData powerupData;
+
     // Keep track of whether the key has been collected
     bool activated = false;
 
@@ -59,11 +62,15 @@ public class JumpPowerup : MonoBehaviour
         // Check if the other object is the player
         if (otherObject.CompareTag("Player"))
         {
-            Debug.Log("Player collected jump powerup!");
-            // Activate the powerup effect
-            effectHandler.JumpPowerupEffect(4.0f, 5.0f);
+            
+            // If we have a valid effect handler and powerup data, apply the effect
+            if (effectHandler != null && powerupData != null)
+            {
+                // Use the data stored in the powerup data scriptable object to apply the effect
+                effectHandler.JumpPowerupEffect(powerupData.multiplier, powerupData.duration);
+            }
 
-            // Dissapear the game object to set the appearance of being collected
+            // Deactivate the powerup object
             this.gameObject.SetActive(false);
         }
     }
