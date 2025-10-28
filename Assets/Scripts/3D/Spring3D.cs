@@ -1,12 +1,14 @@
 using System.Collections;
 using UnityEngine;
 
-public class MyScript : MonoBehaviour
+public class Spring3D : MonoBehaviour
 {
     private bool isJumping = false;
-    
+
     // Public variables determining jump force - easier to edit
     public float jumpForce = 20f;
+
+    Vector3 Direction = Vector3.forward;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -40,7 +42,7 @@ public class MyScript : MonoBehaviour
         isJumping = true;
         // Add an 'upward' and 'forward' force to the Rigidbody
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        rb.AddForce(Vector3.forward * (jumpForce / 2), ForceMode.Impulse);
+        rb.AddForce(Direction * (jumpForce / 4), ForceMode.Impulse);
         // Wait for a short duration before allowing another jump
         yield return new WaitForSeconds(0.01f);
         // Allow the object to jump again
