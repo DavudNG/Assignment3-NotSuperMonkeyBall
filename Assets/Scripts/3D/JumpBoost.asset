@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1407d33970427d4f9f472d2b5399f58, type: 3}
   m_Name: JumpBoost
   m_EditorClassIdentifier: Assembly-CSharp::PowerupData
-  powerupName: 
-  multiplier: 0
-  duration: 0
+  powerupName: JumpBoost
+  multiplier: 4
+  duration: 10
   type: 0
