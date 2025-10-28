@@ -10794,6 +10794,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 213553842486938103, guid: aeb6c3644571b06489495dc1224d1c26, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3098397071889269923, guid: aeb6c3644571b06489495dc1224d1c26, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -11059,8 +11063,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Frozen!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 411291dbc7be7b246b745f2405f82c9b, type: 2}
-  m_sharedMaterial: {fileID: -1612603773562104183, guid: 411291dbc7be7b246b745f2405f82c9b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
