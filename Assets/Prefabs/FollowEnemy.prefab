@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6291954417938435494}
   m_Layer: 0
   m_Name: FollowEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55,6 +55,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -76,6 +78,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -106,6 +109,8 @@ MonoBehaviour:
   BNF_speed: 3
   BNF_time: 5
   player: {fileID: 0}
+  followDistance: 15
+  launchForce: 10
 --- !u!61 &4744365537316737889
 BoxCollider2D:
   m_ObjectHideFlags: 0
