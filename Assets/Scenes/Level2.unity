@@ -11553,7 +11553,7 @@ PrefabInstance:
     - target: {fileID: -5839322945796226288, guid: 66c534d075f1b234794fcba2f9664e3d, type: 3}
       propertyPath: 'hearts.Array.data[2]'
       value: 
-      objectReference: {fileID: 1835374483}
+      objectReference: {fileID: 0}
     - target: {fileID: 1977245091792410731, guid: 66c534d075f1b234794fcba2f9664e3d, type: 3}
       propertyPath: m_LinearDamping
       value: 1.5
