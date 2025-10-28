@@ -43,19 +43,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         isFlipped = true; // flip the player on start cauz monkey faces backwards
-
-        if (difficultyDataScript.GetJumpForce() == 50)
-        {
-            Debug.Log("screwed up");
-        }
-        else
-        {
-            Debug.Log("passed the vibe check");
-        }
-
         moveSpeed = myPlayerData2D.moveSpeed;
         jumpForce = myPlayerData2D.jumpForce;
-
     }
     
     /*

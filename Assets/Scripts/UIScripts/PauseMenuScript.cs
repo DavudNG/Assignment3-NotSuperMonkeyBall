@@ -54,6 +54,5 @@ public class PauseMenuScript : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
-        difficultyDataScript.sceneChangeCheck();
     }
 }

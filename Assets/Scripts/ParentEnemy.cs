@@ -20,6 +20,8 @@ public class ParentEnemy : MonoBehaviour
     public float followDistance = 15f; // Distance within which the enemy will start following the player
     public float launchForce = 10f; // Force applied to the player when colliding with the enemy
 
+
+
     private Rigidbody2D body; // Enemy's Rigidbody2D to control their movement using vectors
 
     void Start()
