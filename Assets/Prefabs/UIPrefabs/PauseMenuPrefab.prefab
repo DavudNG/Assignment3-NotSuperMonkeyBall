@@ -151,7 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 599b2b479f0eaac4db2aad19e4b30d96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FontSwitch
-  defaultFont: {fileID: 11400000, guid: 411291dbc7be7b246b745f2405f82c9b, type: 2}
   dyslexiaFont: {fileID: 11400000, guid: 913e610337e27144c91c58976ef68591, type: 2}
 --- !u!1 &4774116942096662672
 GameObject:
@@ -302,7 +301,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 599b2b479f0eaac4db2aad19e4b30d96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FontSwitch
-  defaultFont: {fileID: 11400000, guid: 411291dbc7be7b246b745f2405f82c9b, type: 2}
   dyslexiaFont: {fileID: 11400000, guid: 913e610337e27144c91c58976ef68591, type: 2}
 --- !u!1 &4994474046361126240
 GameObject:
@@ -639,7 +637,7 @@ MonoBehaviour:
       - m_Target: {fileID: 3723099237450052464, guid: be8752f5e2c3bec4890f3583761a53b5, type: 3}
         m_TargetAssemblyTypeName: PauseMenuScript, Assembly-CSharp
         m_MethodName: GoToMainMenu
-        m_Mode: 3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -797,5 +795,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 599b2b479f0eaac4db2aad19e4b30d96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FontSwitch
-  defaultFont: {fileID: 11400000, guid: 411291dbc7be7b246b745f2405f82c9b, type: 2}
   dyslexiaFont: {fileID: 11400000, guid: 913e610337e27144c91c58976ef68591, type: 2}
