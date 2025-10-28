@@ -1,12 +1,7 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class Key : MonoBehaviour
+public class JumpPowerup : MonoBehaviour
 {
-
-    // This is the "bridge" that the script will activate
-    public GameObject targetObject;
-
     // Keep track of whether the key has been collected
     bool activated = false;
 
@@ -18,35 +13,25 @@ public class Key : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // Ensure the target bridge is disabled when the scene loads
-        targetObject.SetActive(false);
-
-        // Get the height that the bridge starts at
+        // Get the height that the powerup starts at
         initialHeight = this.gameObject.transform.position.y;
     }
-    
+
+    // Update is called once per frame
     void Update()
     {
-        // Once the key is collected, always show the bridge
-        if (activated == true)
-        {
-            targetObject.SetActive(true);
-        }
-
         // Keep track of where the key is
         float currentHeight = this.gameObject.transform.position.y;
 
-        // When the key is 1 unit above its initial height, it should stop moving up
+        // When the powerup is 1 unit above its initial height, it should stop moving up
         if (currentHeight >= initialHeight + 0.5f)
         {
-            Debug.Log("Reversing to down");
             movingDir = 0;
         }
 
-        // When the key is 1 unit below it's initial height, it should stop moving down
+        // When the powerup is 1 unit below it's initial height, it should stop moving down
         if (currentHeight <= initialHeight - 0.5f)
         {
-            Debug.Log("Reversing direction to up");
             movingDir = 1;
         }
 
@@ -65,13 +50,21 @@ public class Key : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // This triggers when the player collides with the key
+        // When the player enters the trigger zone we make it jump
+        GameObject otherObject = other.gameObject;
 
-        // Remove the key from the scene
-        // Tried to use SetActive(false), but doesn't seem to work here?
-        this.transform.Translate(0f, -100f, 0f);
+        // Load the effect handler script
+        PlayerEffectHandler effectHandler = other.GetComponent<PlayerEffectHandler>();
 
-        // Enable the bridge through this boolean
-        activated = true;
+        // Check if the other object is the player
+        if (otherObject.CompareTag("Player"))
+        {
+            Debug.Log("Player collected jump powerup!");
+            // Activate the powerup effect
+            effectHandler.JumpPowerupEffect(4.0f, 5.0f);
+
+            // Dissapear the game object to set the appearance of being collected
+            this.gameObject.SetActive(false);
+        }
     }
 }

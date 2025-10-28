@@ -18,20 +18,16 @@ public class HiddenBridge : MonoBehaviour
     void Update()
     {
         float currentHeight = this.gameObject.transform.position.y;
-
-        Debug.Log("Current Height: " + currentHeight + "; Initial Height: " + initialHeight + "; Moving Direction: " + movingDir);
-
+        
         // When the bridge is 1 unit above its initial height, it should stop moving up
         if (currentHeight >= initialHeight + 1f)
         {
-            Debug.Log("Reversing to down");
             movingDir = 0;
         }
 
         // When the bridge is 1 unit below it's initial height, it should stop moving down
         if (currentHeight <= initialHeight - 1f)
         {
-            Debug.Log("Reversing direction to up");
             movingDir = 1;
         }
 
