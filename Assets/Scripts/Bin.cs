@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class Bin : MonoBehaviour
 {
+    public Animator myAnimator;
     public string tagTocheck;
     private bool isCompleted = false;
     
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,9 +19,10 @@ public class Bin : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
-        if(collision.collider.CompareTag(tagTocheck))
+        Debug.Log("collided");
+        if(collision.CompareTag(tagTocheck))
         {
             collision.gameObject.SetActive(false);
             SetCompleted();
@@ -29,6 +32,12 @@ public class Bin : MonoBehaviour
     public void SetCompleted()
     {
         isCompleted = true;
+        myAnimator.SetTrigger("isComplete");
+    }
 
+    public bool GetCompleted()
+    {
+        return isCompleted;
+        
     }
 }
