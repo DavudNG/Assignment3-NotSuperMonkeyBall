@@ -178,4 +178,9 @@ public class Ball : MonoBehaviour
 
         rb.constraints = ogConstraints;
     }
+
+    private void TurnOff()
+    {
+        this.gameObject.SetActive(false);
+    }
 }
