@@ -3,6 +3,7 @@ using UnityEngine;
 public class Bin : MonoBehaviour
 {
     public Animator myAnimator;
+    public LevelProgress myProgress;
     public string tagTocheck;
     private bool isCompleted = false;
     
@@ -21,7 +22,6 @@ public class Bin : MonoBehaviour
 
     private void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
-        Debug.Log("collided");
         if(collision.CompareTag(tagTocheck))
         {
             collision.gameObject.SetActive(false);
@@ -32,6 +32,7 @@ public class Bin : MonoBehaviour
     public void SetCompleted()
     {
         isCompleted = true;
+        myProgress.IncreaseProgress();
         myAnimator.SetTrigger("isComplete");
     }
 
