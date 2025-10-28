@@ -45,7 +45,6 @@ public class DeathMenuScript : MonoBehaviour
     {
         // Make sure the time is resumed after leaving the game
         Time.timeScale = 1f;
-        // This loads the main menu scene, which is at index 0 in the build settings
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(6);
     }
 }

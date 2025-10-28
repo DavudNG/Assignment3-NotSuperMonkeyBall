@@ -845,27 +845,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WindForce
   forceDirection: {x: -1, y: 0}
   forceStrength: 9
---- !u!114 &427012532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+--- !u!212 &427012535 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 932260860571765439, guid: 66c534d075f1b234794fcba2f9664e3d, type: 3}
+  m_PrefabInstance: {fileID: 1792052340}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 427012519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bf6b6c451cc8504c9e3de0428c969ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
-  myPlayerData: {fileID: 0}
-  health: 3
-  hearts:
-  - {fileID: 1312578168}
-  - {fileID: 2105829325}
-  - {fileID: 843241380}
-  myRenderer: {fileID: 0}
-  flashTime: 0
-  impulseSource: {fileID: 0}
 --- !u!1 &436857942
 GameObject:
   m_ObjectHideFlags: 0
@@ -8121,6 +8105,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -5839322945796226288, guid: 66c534d075f1b234794fcba2f9664e3d, type: 3}
+      propertyPath: myRenderer
+      value: 
+      objectReference: {fileID: 427012535}
+    - target: {fileID: -5839322945796226288, guid: 66c534d075f1b234794fcba2f9664e3d, type: 3}
       propertyPath: hearts.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -8199,9 +8187,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6270827950342556694, guid: 66c534d075f1b234794fcba2f9664e3d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 427012526}
-    - targetCorrespondingSourceObject: {fileID: 6270827950342556694, guid: 66c534d075f1b234794fcba2f9664e3d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 427012532}
   m_SourcePrefab: {fileID: 100100000, guid: 66c534d075f1b234794fcba2f9664e3d, type: 3}
 --- !u!1 &1820180482
 GameObject:
