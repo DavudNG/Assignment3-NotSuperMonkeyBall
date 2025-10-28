@@ -2,4 +2,9 @@ isSlowed=true
 isSlippery=false
 isMoonGrav=false
 isColourblind=false
+<<<<<<< HEAD
 volume=1
+clickedObject=false
+=======
+volume=1
+>>>>>>> main

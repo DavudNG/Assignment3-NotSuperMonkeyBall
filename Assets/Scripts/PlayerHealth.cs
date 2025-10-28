@@ -1,6 +1,7 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 using System.Collections;
+using UnityEngine.UI;
+using System;
 using Unity.Cinemachine;
 
 /*
@@ -13,6 +14,10 @@ public class PlayerHealth : MonoBehaviour
 {
     public PlayerData2D myPlayerData;
     public int health;
+    public Image[] hearts;
+    private int heartIndex;
+
+
 
     // Hitflash variables
     public SpriteRenderer myRenderer; // Ref to the renderer of the player
@@ -27,8 +32,7 @@ public class PlayerHealth : MonoBehaviour
     void Start() {
         origColor = myRenderer.color; // grab the original colour from the renderer
         health = myPlayerData.health; // Initialize the players health
-
-        // Cinemacihne impulse source setup
+        heartIndex = 0;
         impulseSource = GetComponent<CinemachineImpulseSource>();
     }
 
@@ -48,10 +52,13 @@ public class PlayerHealth : MonoBehaviour
             health -= 1;
             Debug.Log("Player Health: " + health);
             CallHitFlash(); // call hitflash coroutine
-            CameraShake(impulseSource); // call camera shake
+            hearts[heartIndex].enabled = false;
+            heartIndex++;
+            CameraShake(impulseSource);
         }
         else
         {
+            hearts[heartIndex].enabled = false;
             // The player died
             // Some useful logging statements
             Debug.Log("Player dead!");

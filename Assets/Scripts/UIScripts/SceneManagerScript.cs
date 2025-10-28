@@ -16,33 +16,7 @@ public class SceneManagerScript : MonoBehaviour
     public void LoadScene(int sceneNumber)
     {
         SceneManager.LoadScene(sceneNumber);
-        difficultyDataScript.sceneChangeCheck();
     }
-
-    //public void LoadLevel1(int sceneNumber)
-    //{
-    //    SceneManager.LoadScene(2);
-    //}
-
-    //public void LoadLevel2(int sceneNumber)
-    //{
-    //    SceneManager.LoadScene(3);
-    //}
-
-    //public void LoadLevel3(int sceneNumber)
-    //{
-    //    SceneManager.LoadScene(4);
-    //}
-
-    //public void LoadSettings(int sceneNumber)
-    //{
-    //    SceneManager.LoadScene(5);
-    //}
-
-    //public void LoadTitleScreen(int sceneNumber)
-    //{
-    //    SceneManager.LoadScene(0);
-    //}
 
     public void changeGlobalFonts()
     {

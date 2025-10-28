@@ -13,17 +13,31 @@ public class ParentEnemy : MonoBehaviour
 {
     public enum MovementType { backNForth, followPlayer }; // Declares 2 movement types for the enemies
     [SerializeField] private MovementType movementType; // Allows to select a particular movement type for the enemy this script is attached to
-    [SerializeField] private float BNF_speed; // Speed of the enemy's movement
     [SerializeField] private float BNF_time; // Time between movements for the "BackAndForth" movement type
     private bool colliding; // Bool to check if a collision is occurring
     public Transform player; // Transform for the player's position for the "FollowPlayer" movement type
-    public float followDistance = 15f; // Distance within which the enemy will start following the player
+    public float followDistance = 15f; // Distance within which y withe enemll start following the player
     public float launchForce = 10f; // Force applied to the player when colliding with the enemy
+    public DifficultyData easyDifficulty;
+    public DifficultyData mediumDifficulty;
+    public DifficultyData hardDifficulty;
+    private DifficultyData difficultyData;
+    public SpriteRenderer myRenderer; // Ref to the renderer of the player
+    private Coroutine _hitFlashCorotine; // Ref to the coroutine 
+    private Color origColor; // To store the original color of the player
+    public float flashTime; // Float that denotes the duration of the flash
+    private float speed;
+    private int health;
+    private bool isAlive = true;
+    
+
+
 
     private Rigidbody2D body; // Enemy's Rigidbody2D to control their movement using vectors
 
     void Start()
     {
+        origColor = myRenderer.color; // grab the original colour from the renderer
         body = GetComponent<Rigidbody2D>(); // Gets the Rigidbody2D of the object this script is attached to
 
         if (movementType == MovementType.backNForth) // If the movement type selected is back and forth
@@ -34,6 +48,22 @@ public class ParentEnemy : MonoBehaviour
         {
             StartCoroutine(FollowPlayer()); // Start the associated follow player coroutine, which the enemy will forever do
         }
+
+        if (PlayerPrefs.GetString("difficulty") == "easy")
+        {
+            difficultyData = easyDifficulty;
+        }
+        if (PlayerPrefs.GetString("difficulty") == "medium")
+        {
+            difficultyData = mediumDifficulty;
+        }
+        if (PlayerPrefs.GetString("difficulty") == "hard")
+        {
+            difficultyData = hardDifficulty;
+        }
+
+        speed = difficultyData.speed;
+        health = difficultyData.health;
     }
 
     /*
@@ -57,10 +87,22 @@ public class ParentEnemy : MonoBehaviour
             rb.AddForce(Vector2.up * launchForce, ForceMode2D.Impulse);
         }
     }
+
+    public void TakeDamage()
+    {
+        health--;
+        CallHitFlash(); // call hitflash coroutine
+
+        if (health == 0)
+        {
+            isAlive = false;
+            myRenderer.color = new Color(63, 50, 50); // lerp the colour value from the intended colour back to the original color  
+        }
+    }
     
     private IEnumerator FollowPlayer() // IEnumerator for the follow player coroutine
     {
-        while (true)
+        while (isAlive)
         {
             // Calculate the distance to the player
             float distanceToPlayer = Vector2.Distance(transform.position, player.position);
@@ -74,21 +116,45 @@ public class ParentEnemy : MonoBehaviour
             {
                 // Within follow range – move toward player
                 Vector2 direction = (player.position - transform.position).normalized; // Get direction
-                body.linearVelocity = new Vector2(direction.x * BNF_speed, body.linearVelocity.y);
+                body.linearVelocity = new Vector2(direction.x * speed, body.linearVelocity.y);
             }
 
             yield return new WaitForSeconds(0.1f); // Small delay to avoid over-updating
+        }
+    }
+    public void CallHitFlash() 
+    {
+        _hitFlashCorotine = StartCoroutine(HitFlasher()); // starts the coroutine and sets the reference to it
+    }
+
+    /*
+        HitFlasher() 
+        Author: David
+        Desc: IEnumerator that lerps(linear interpolation: smooth transition between 2 points) 
+        the renderer's colour values for a duration of time equal to flashtime
+    */
+    private IEnumerator HitFlasher()
+    {
+        float elapsedTime = 0f; // float to hold the current elapsed time
+
+        while (elapsedTime < flashTime) // while the elapsed time doesnt exceed the flashtime
+        {
+            elapsedTime += Time.deltaTime; // increment the elapsed time
+
+            Color lerpedColor = Color.Lerp(Color.red, origColor, elapsedTime / flashTime); // lerp the colour value from the intended colour back to the original color  
+            myRenderer.color = lerpedColor; // set the renderer's color each time to transition the color for the hit effect 
+            yield return null; // pause the coroutine for a single frame 
         }
     }
 
 
     private IEnumerator BackAndForth() // IEnumerator for the back and forth coroutine
     {
-        while (true) // Infinite loop
+        while (isAlive) // Infinite loop
         {
-            body.linearVelocity = new Vector2(-BNF_speed, body.linearVelocity.y); // Move to the left
+            body.linearVelocity = new Vector2(-speed, body.linearVelocity.y); // Move to the left
             yield return new WaitForSeconds(BNF_time); // Wait for the selected time
-            body.linearVelocity = new Vector2(BNF_speed, body.linearVelocity.y); // Move to the right
+            body.linearVelocity = new Vector2(speed, body.linearVelocity.y); // Move to the right
             yield return new WaitForSeconds(BNF_time); // Wait for the selected
         }
     }
