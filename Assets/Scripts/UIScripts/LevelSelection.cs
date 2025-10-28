@@ -12,14 +12,6 @@ public class LevelSelection : MonoBehaviour
 
     void Start()
     {
-        if (difficultyDataScript.GetJumpForce() == 50)
-        {
-            Debug.Log("screwed up");
-        }
-        else
-        {
-            Debug.Log("passed the vibe check");
-        }
         //obtains Player pref for "lvlAt". If null, sets it to 2.
         int lvlAt = PlayerPrefs.GetInt("lvlAt", 2);
 
