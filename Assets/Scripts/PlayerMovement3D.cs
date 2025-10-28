@@ -1,5 +1,6 @@
+using System.Collections;
 using UnityEngine;
-
+[RequireComponent(typeof(Rigidbody))]
 /*
     PlayerAttack.cs     
     Author: David
@@ -18,6 +19,10 @@ public class PlayerMovement3D : MonoBehaviour
     public LayerMask groundLayer; // ref to the groundlayer tag
     public LayerMask interactableLayer; // ref to the interactable layer tag
     public float pushPower = 2.0f; // power to push rigidbodies when colliding with them
+    public ParticleSystem landParticles;
+    public ParticleSystem attackParticles;
+    public ParticleSystem uppercutParticles;
+    private bool landPartOnce = false;
 
     [Tooltip("Impulse strength applied upward on Start")]
     public float jumpForce = 500f;
@@ -34,15 +39,7 @@ public class PlayerMovement3D : MonoBehaviour
 
     void Start()
     {
-        // Safety checks
-        if (rb == null)
-        {
-            Debug.LogError("No Rigidbody found on " + gameObject.name);
-            return;
-        }
-
-        // Apply an instant upward impulse so the object 'jumps' immediately
-        //rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        
     }
 
     void OnCollisionEnter(Collision collision)
@@ -128,10 +125,19 @@ public class PlayerMovement3D : MonoBehaviour
     {
         if(currentJumpTime < myPlayerData.maxJumpTime) // if current jump time doesnt exceed max 
         {
+            landPartOnce = true;
             // Calculate and apply upward force to the char controller
             myCharacterController.Move(new Vector3(0, myPlayerData.jumpForce * myPlayerData.jumpForceMultiplier * Time.deltaTime, 0));
             currentJumpTime += Time.deltaTime; // 
         }
+    }
+    IEnumerator attackPartCoroutine()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Vector3 offset = transform.forward * 1.3f + transform.right * 1.1f + Vector3.up * 1.15f;
+        attackParticles.transform.position = transform.position + offset;
+        attackParticles.transform.rotation = Quaternion.LookRotation(-transform.forward, Vector3.up);
+        attackParticles.Play();
     }
 
     // TODO
@@ -147,8 +153,18 @@ public class PlayerMovement3D : MonoBehaviour
         {
             myAnimator.SetTrigger("isAttacking");
             currentAttackTimer = myPlayerData.attackCooldown;
+            StartCoroutine(attackPartCoroutine());
         }
     }
+    IEnumerator uppercutPartCoroutine()
+    {
+        yield return new WaitForSeconds(0.6f);
+        Vector3 offset = transform.forward * 0.6f + transform.right * -1.1f + Vector3.up * 1.35f;
+        uppercutParticles.transform.position = transform.position + offset;
+        uppercutParticles.transform.rotation = Quaternion.LookRotation(-transform.forward, Vector3.up);
+        uppercutParticles.Play();
+    }
+
 
 
     // TODO
@@ -164,6 +180,7 @@ public class PlayerMovement3D : MonoBehaviour
         {
             myAnimator.SetTrigger("isUppercutting");
             currentAttackTimer = myPlayerData.attackCooldown;
+            StartCoroutine(uppercutPartCoroutine());
         }
     }
 
@@ -175,11 +192,17 @@ public class PlayerMovement3D : MonoBehaviour
     */
     public bool isGrounded()
     {
-            //RaycastHit hit;
-            // checks whether the raycast returns true if it collides with either the groundlayer or interactable
-            if (Physics.Raycast(transform.position, Vector3.down, castDistance, groundLayer) || 
-                    Physics.Raycast(transform.position, Vector3.down, castDistance, interactableLayer))
+        //RaycastHit hit;
+        // checks whether the raycast returns true if it collides with either the groundlayer or interactable
+        if (Physics.Raycast(transform.position, Vector3.down, castDistance, groundLayer) || 
+                Physics.Raycast(transform.position, Vector3.down, castDistance, interactableLayer))
+        {
+            if (landPartOnce == true)
             {
+                landParticles.transform.position = transform.position;
+                landParticles.Play();
+                landPartOnce = false;
+            }
             // if true
             currentJumpTime = 0; // reset current jump timer
             return true;

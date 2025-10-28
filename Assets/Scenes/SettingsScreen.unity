@@ -254,8 +254,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Reset Game
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 411291dbc7be7b246b745f2405f82c9b, type: 2}
-  m_sharedMaterial: {fileID: -1612603773562104183, guid: 411291dbc7be7b246b745f2405f82c9b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1754,7 +1754,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 262}
+  m_AnchoredPosition: {x: 0, y: 170}
   m_SizeDelta: {x: 1000, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &853018532
@@ -1779,8 +1779,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Settings
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 411291dbc7be7b246b745f2405f82c9b, type: 2}
-  m_sharedMaterial: {fileID: -1612603773562104183, guid: 411291dbc7be7b246b745f2405f82c9b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1920,7 +1920,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -66, y: 71}
+  m_AnchoredPosition: {x: -100.000015, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &855609640
@@ -1957,10 +1957,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dysliexia Friendly Font
+  m_text: Dyslexia Friendly Font
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 411291dbc7be7b246b745f2405f82c9b, type: 2}
-  m_sharedMaterial: {fileID: -1612603773562104183, guid: 411291dbc7be7b246b745f2405f82c9b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3141,6 +3141,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 324231969}
     m_Modifications:
+    - target: {fileID: 4590860683845661978, guid: 70dd39f0e83f4cd44b1542223e054e32, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 4590860683845661978, guid: 70dd39f0e83f4cd44b1542223e054e32, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 4590860683845661978, guid: 70dd39f0e83f4cd44b1542223e054e32, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6273794071033405449, guid: 70dd39f0e83f4cd44b1542223e054e32, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3211,11 +3223,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7602620897438734883, guid: 70dd39f0e83f4cd44b1542223e054e32, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -433
+      value: -368
       objectReference: {fileID: 0}
     - target: {fileID: 7602620897438734883, guid: 70dd39f0e83f4cd44b1542223e054e32, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -210
+      value: -188.47
       objectReference: {fileID: 0}
     - target: {fileID: 7602620897438734883, guid: 70dd39f0e83f4cd44b1542223e054e32, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
