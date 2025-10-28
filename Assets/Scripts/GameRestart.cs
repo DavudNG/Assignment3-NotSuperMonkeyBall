@@ -22,7 +22,6 @@ public class GameRestart : MonoBehaviour
         {
             // We restart the level by replacing the current instance of the scene with an initialzed one
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            difficultyDataScript.sceneChangeCheck();
         }
     }
 }
