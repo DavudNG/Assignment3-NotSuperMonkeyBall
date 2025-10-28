@@ -343,7 +343,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 599b2b479f0eaac4db2aad19e4b30d96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FontSwitch
-  defaultFont: {fileID: 11400000, guid: 411291dbc7be7b246b745f2405f82c9b, type: 2}
   dyslexiaFont: {fileID: 11400000, guid: 913e610337e27144c91c58976ef68591, type: 2}
 --- !u!1 &241969888
 GameObject:
@@ -808,7 +807,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -120, y: 125.9}
+  m_AnchoredPosition: {x: 156.9, y: 136}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &355824692
@@ -1041,7 +1040,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 131, y: 120.899994}
+  m_AnchoredPosition: {x: -23.1, y: 126}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &421701252
@@ -1066,8 +1065,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Difficulty
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 411291dbc7be7b246b745f2405f82c9b, type: 2}
-  m_sharedMaterial: {fileID: -1612603773562104183, guid: 411291dbc7be7b246b745f2405f82c9b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1235,7 +1234,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 599b2b479f0eaac4db2aad19e4b30d96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FontSwitch
-  defaultFont: {fileID: 11400000, guid: 411291dbc7be7b246b745f2405f82c9b, type: 2}
   dyslexiaFont: {fileID: 11400000, guid: 913e610337e27144c91c58976ef68591, type: 2}
 --- !u!1 &538736025
 GameObject:
@@ -1510,7 +1508,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 87, y: 183}
+  m_AnchoredPosition: {x: -83, y: 76.003}
   m_SizeDelta: {x: 221.7656, y: 164.9749}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &738555446
@@ -1525,7 +1523,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 599b2b479f0eaac4db2aad19e4b30d96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FontSwitch
-  defaultFont: {fileID: 11400000, guid: 411291dbc7be7b246b745f2405f82c9b, type: 2}
   dyslexiaFont: {fileID: 11400000, guid: 913e610337e27144c91c58976ef68591, type: 2}
 --- !u!114 &738555447
 MonoBehaviour:
@@ -1566,8 +1563,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 411291dbc7be7b246b745f2405f82c9b, type: 2}
-  m_sharedMaterial: {fileID: -1612603773562104183, guid: 411291dbc7be7b246b745f2405f82c9b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1754,7 +1751,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 170}
+  m_AnchoredPosition: {x: 0, y: 221}
   m_SizeDelta: {x: 1000, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &853018532
@@ -1883,7 +1880,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 599b2b479f0eaac4db2aad19e4b30d96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FontSwitch
-  defaultFont: {fileID: 11400000, guid: 411291dbc7be7b246b745f2405f82c9b, type: 2}
   dyslexiaFont: {fileID: 11400000, guid: 913e610337e27144c91c58976ef68591, type: 2}
 --- !u!1 &855609638
 GameObject:
@@ -1935,7 +1931,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 599b2b479f0eaac4db2aad19e4b30d96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FontSwitch
-  defaultFont: {fileID: 11400000, guid: 411291dbc7be7b246b745f2405f82c9b, type: 2}
   dyslexiaFont: {fileID: 11400000, guid: 913e610337e27144c91c58976ef68591, type: 2}
 --- !u!114 &855609641
 MonoBehaviour:
@@ -2147,7 +2142,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -98.19, y: 183}
+  m_AnchoredPosition: {x: 91.7, y: 73}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &964040429
@@ -2249,7 +2244,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -44}
   m_SizeDelta: {x: 307.1624, y: 192.1667}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1158135855
@@ -2520,7 +2515,6 @@ MonoBehaviour:
   m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
-  m_Version: 2
   m_TaaSettings:
     m_Quality: 3
     m_FrameInfluence: 0.1
@@ -2528,6 +2522,7 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+  m_Version: 2
 --- !u!1 &1364069516
 GameObject:
   m_ObjectHideFlags: 0
@@ -2777,8 +2772,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Easy
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 411291dbc7be7b246b745f2405f82c9b, type: 2}
-  m_sharedMaterial: {fileID: -1612603773562104183, guid: 411291dbc7be7b246b745f2405f82c9b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
