@@ -94,6 +94,7 @@ IEnumerator forceJump(float duration = 0.2f)
 
     // Ensure exact final position
     playerMovement3D.transform.position = startPos;
+    inputHandler.EnableAllInputs();
     SceneManager.LoadScene(7);
 }
 

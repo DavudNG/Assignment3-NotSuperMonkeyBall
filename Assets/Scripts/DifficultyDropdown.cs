@@ -38,7 +38,7 @@ public class DifficultyDropdown : MonoBehaviour
 
     public void SelectEasy()
     {
-        PlayerPrefs.SetString("difficulty", "easy2");
+        PlayerPrefs.SetString("difficulty", "easy");
     }
     public void onValueChanged()
     {

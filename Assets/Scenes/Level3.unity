@@ -544,7 +544,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3723099237450052464, guid: be8752f5e2c3bec4890f3583761a53b5, type: 3}
   m_PrefabInstance: {fileID: 491238970}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1552263617}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f783f5747c677e4aa32c6fc6bfb84ec, type: 3}
@@ -845,27 +845,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WindForce
   forceDirection: {x: -1, y: 0}
   forceStrength: 9
---- !u!114 &427012532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+--- !u!212 &427012535 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 932260860571765439, guid: 66c534d075f1b234794fcba2f9664e3d, type: 3}
+  m_PrefabInstance: {fileID: 1792052340}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 427012519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bf6b6c451cc8504c9e3de0428c969ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
-  myPlayerData: {fileID: 0}
-  health: 3
-  hearts:
-  - {fileID: 1312578168}
-  - {fileID: 2105829325}
-  - {fileID: 843241380}
-  myRenderer: {fileID: 0}
-  flashTime: 0
-  impulseSource: {fileID: 0}
 --- !u!1 &436857942
 GameObject:
   m_ObjectHideFlags: 0
@@ -1693,10 +1677,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6199006466496525711, guid: be8752f5e2c3bec4890f3583761a53b5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1552263619}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be8752f5e2c3bec4890f3583761a53b5, type: 3}
 --- !u!1 &547684690
 GameObject:
@@ -7636,11 +7617,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementType: 1
-  BNF_speed: 3
   BNF_time: 5
   player: {fileID: 427012520}
   followDistance: 10
   launchForce: 10
+  easyDifficulty: {fileID: 11400000, guid: fbe3ef72978f04847b9b87bbb47eb015, type: 2}
+  mediumDifficulty: {fileID: 11400000, guid: 8da88ba81e640aa46acace43623c56b8, type: 2}
+  hardDifficulty: {fileID: 11400000, guid: 6adc1a4721f442d4eb715f825d98eb02, type: 2}
 --- !u!1 &1508954227
 GameObject:
   m_ObjectHideFlags: 0
@@ -7921,25 +7904,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3098397071889269923, guid: aeb6c3644571b06489495dc1224d1c26, type: 3}
   m_PrefabInstance: {fileID: 2001781298}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1552263617 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6199006466496525711, guid: be8752f5e2c3bec4890f3583761a53b5, type: 3}
-  m_PrefabInstance: {fileID: 491238970}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1552263619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1552263617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20968a1578e135a46bfb293bf9744205, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DeathMenuScript
-  deathScreen: {fileID: 1010467669}
-  difficultyDataScript: {fileID: 0}
 --- !u!1 &1605160640
 GameObject:
   m_ObjectHideFlags: 0
@@ -8121,6 +8085,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -5839322945796226288, guid: 66c534d075f1b234794fcba2f9664e3d, type: 3}
+      propertyPath: myRenderer
+      value: 
+      objectReference: {fileID: 427012535}
+    - target: {fileID: -5839322945796226288, guid: 66c534d075f1b234794fcba2f9664e3d, type: 3}
       propertyPath: hearts.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -8199,9 +8167,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6270827950342556694, guid: 66c534d075f1b234794fcba2f9664e3d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 427012526}
-    - targetCorrespondingSourceObject: {fileID: 6270827950342556694, guid: 66c534d075f1b234794fcba2f9664e3d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 427012532}
   m_SourcePrefab: {fileID: 100100000, guid: 66c534d075f1b234794fcba2f9664e3d, type: 3}
 --- !u!1 &1820180482
 GameObject:
@@ -24048,7 +24013,7 @@ PrefabInstance:
     - target: {fileID: 605557744020726782, guid: 684acf2c15731964ea1cec2a5180630d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1552263619}
+      objectReference: {fileID: 0}
     - target: {fileID: 2807307396405278859, guid: 684acf2c15731964ea1cec2a5180630d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
@@ -24056,7 +24021,11 @@ PrefabInstance:
     - target: {fileID: 2807307396405278859, guid: 684acf2c15731964ea1cec2a5180630d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1552263619}
+      objectReference: {fileID: -6602836843092979663, guid: be8752f5e2c3bec4890f3583761a53b5, type: 3}
+    - target: {fileID: 2807307396405278859, guid: 684acf2c15731964ea1cec2a5180630d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoToMainMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 7024703494189680497, guid: 684acf2c15731964ea1cec2a5180630d, type: 3}
       propertyPath: m_Name
       value: Death Screen
