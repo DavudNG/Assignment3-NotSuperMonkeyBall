@@ -26,7 +26,15 @@ public enum SoundType // Enum to store the sounds being used
     LEVEL3MUSIC,
 
     MENUMUSIC,
-    HURT
+    HURT,
+
+    KEY,
+    POWERUP,
+    PRESSUREPLATEA,
+    PRESSUREPLATEB
+
+
+
 }
 [RequireComponent(typeof(AudioSource))] // Require an audio source component to play the sounds
 public class SoundManager : MonoBehaviour
@@ -34,6 +42,7 @@ public class SoundManager : MonoBehaviour
     private static SoundManager instance; // Variable to store this
     private AudioSource audioSource; // Variable to store the audio source
     [SerializeField] private AudioClip[] soundList; // Array to store all the sounds in the game
+    [SerializeField] private VolumeData volumeDataScript;
 
     private void Awake() // When in use
     {
@@ -46,8 +55,8 @@ public class SoundManager : MonoBehaviour
     
     } 
 
-    public static void PlaySound(SoundType sound, float volume = 1) // Play the sound specified in the parameter at a volume specified in the parameter (or at 100% volume if left unspecified)
+    public static void PlaySound(SoundType sound) // Play the sound specified in the parameter at a volume specified in the parameter (or at 100% volume if left unspecified)
     {
-        instance.audioSource.PlayOneShot(instance.soundList[(int)sound], volume); // Uses the audio source to play the sound specified at the volume specified 1 time.
+        instance.audioSource.PlayOneShot(instance.soundList[(int)sound], instance.volumeDataScript.GetVolume()); // Uses the audio source to play the sound specified at the volume specified 1 time.
     }
 }

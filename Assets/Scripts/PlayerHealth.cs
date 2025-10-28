@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using System;
+using Unity.Cinemachine;
 
 /*
     PlayerHealth.cs     
@@ -24,11 +25,15 @@ public class PlayerHealth : MonoBehaviour
     private Color origColor; // To store the original color of the player
     public float flashTime; // Float that denotes the duration of the flash
 
+    // Camera shake variables
+    public CinemachineImpulseSource impulseSource; // Reference to the impulse source component
+
     
     void Start() {
         origColor = myRenderer.color; // grab the original colour from the renderer
         health = myPlayerData.health; // Initialize the players health
         heartIndex = 0;
+        impulseSource = GetComponent<CinemachineImpulseSource>();
     }
 
     //  We don't need anything here
@@ -49,6 +54,7 @@ public class PlayerHealth : MonoBehaviour
             CallHitFlash(); // call hitflash coroutine
             hearts[heartIndex].enabled = false;
             heartIndex++;
+            CameraShake(impulseSource);
         }
         else
         {
@@ -93,5 +99,10 @@ public class PlayerHealth : MonoBehaviour
             myRenderer.color = lerpedColor; // set the renderer's color each time to transition the color for the hit effect 
             yield return null; // pause the coroutine for a single frame 
         }
+    }
+
+    private void CameraShake(CinemachineImpulseSource impulseSource)
+    {
+        impulseSource.GenerateImpulse(1.0f);
     }
 }

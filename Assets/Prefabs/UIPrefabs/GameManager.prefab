@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
+  difficultyDataScript: {fileID: 11400000, guid: fbe3ef72978f04847b9b87bbb47eb015, type: 2}
 --- !u!114 &-382709950454399284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,6 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 425a36daa50805c4f9b6acd2c595fd8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameRestart
+  difficultyDataScript: {fileID: 11400000, guid: fbe3ef72978f04847b9b87bbb47eb015, type: 2}
 --- !u!114 &-6602836843092979663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,6 +75,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeathMenuScript
   deathScreen: {fileID: 0}
+  difficultyDataScript: {fileID: 11400000, guid: fbe3ef72978f04847b9b87bbb47eb015, type: 2}
 --- !u!114 &-6070530228948631968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,3 +89,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FinishLevelPrefab
   finishLevelScreen: {fileID: 0}
+  difficultyDataScript: {fileID: 11400000, guid: fbe3ef72978f04847b9b87bbb47eb015, type: 2}
