@@ -66,7 +66,7 @@ public class Spikes : MonoBehaviour
 
         // Wait for 0.5 seconds before allowing damage again
         // This is to prevent the player from taking damage every frame while touching the spikes
-        yield return new WaitForSeconds(0.01f);
+        yield return new WaitForSeconds(0.5f);
     }
 
     private void OnTriggerExit2D(Collider2D other)
