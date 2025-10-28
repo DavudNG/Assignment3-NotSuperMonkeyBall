@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SettingsCubeClick : MonoBehaviour
+public class QuitCubeClick : MonoBehaviour
 {
     public PlayerMovement3D playerMovement3D;
     public InputHandler3D inputHandler;
@@ -82,7 +82,7 @@ IEnumerator forceJump(float duration = 0.2f)
 
     // Ensure exact final position
     playerMovement3D.transform.position = startPos;
-    SceneManager.LoadScene(5);
+    Application.Quit();
 }
 
 

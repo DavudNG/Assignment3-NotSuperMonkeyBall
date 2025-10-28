@@ -53,6 +53,17 @@ public class PlayCubeClick : MonoBehaviour
         }
     }
 
+    public void OnMouseHover()
+    {
+        Debug.Log("clicked on the play cube");
+
+
+        if (ReadWrite.CheckAttribute("clickedObject") == false)
+        {
+            StartCoroutine(moveCoroutine());
+        }
+    }
+
 IEnumerator forceJump(float duration = 0.2f)
 {
     Vector3 startPos = playerMovement3D.transform.position;
@@ -89,6 +100,15 @@ IEnumerator forceJump(float duration = 0.2f)
     // Update is called once per frame
     void Update()
     {
-        
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            if (hit.transform == transform)
+            {
+                Debug.Log("Mouse is hovering over " + gameObject.name);
+            }
+        }
     }
 }
