@@ -53,8 +53,11 @@ public class JumpPowerup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // When the player enters the trigger zone we make it jump
+        // When the player enters the trigger zone we activate the powerup
         GameObject otherObject = other.gameObject;
+
+        // Play the collection sound
+        SoundManager.PlaySound(SoundType.POWERUP);
 
         // Load the effect handler script
         PlayerEffectHandler effectHandler = other.GetComponent<PlayerEffectHandler>();

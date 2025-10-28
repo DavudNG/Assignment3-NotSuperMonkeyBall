@@ -22,7 +22,7 @@ public class InputHandler3D : MonoBehaviour
         Vector2 movementVector = _movementAction.ReadValue<Vector2>();
         myMovementScript.Move(movementVector);
 
-        if(_jumpAction.IsPressed())
+        if (_jumpAction.IsPressed())
         {
             myMovementScript.Jump();
         }
@@ -36,5 +36,21 @@ public class InputHandler3D : MonoBehaviour
         {
             myMovementScript.Uppercut();
         }
+    }
+
+    public void DisableAllInputs()
+    {
+        _movementAction.Disable();
+        _jumpAction.Disable();
+        _attackAction.Disable();
+        _upperAction.Disable();
+    }
+    
+    public void EnableAllInputs()
+    {
+        _movementAction.Enable();
+        _jumpAction.Enable();
+        _attackAction.Enable();
+        _upperAction.Enable();
     }
 }
