@@ -71,6 +71,9 @@ public class Key : MonoBehaviour
         // Tried to use SetActive(false), but doesn't seem to work here?
         this.transform.Translate(0f, -100f, 0f);
 
+        // Play the key collection sound
+        SoundManager.PlaySound(SoundType.KEY);
+
         // Enable the bridge through this boolean
         activated = true;
     }

@@ -26,7 +26,15 @@ public enum SoundType // Enum to store the sounds being used
     LEVEL3MUSIC,
 
     MENUMUSIC,
-    HURT
+    HURT,
+
+    KEY,
+    POWERUP,
+    PRESSUREPLATEA,
+    PRESSUREPLATEB
+
+
+
 }
 [RequireComponent(typeof(AudioSource))] // Require an audio source component to play the sounds
 public class SoundManager : MonoBehaviour

@@ -32,7 +32,11 @@ public class PressurePlate : MonoBehaviour
         // This code exectues when something collides with the pressure plate
         targetObject.SetActive(true);
 
+        // Lower the top part of the pressure plate to simulate being pressed
         topPressurePlate.transform.localPosition = new Vector3(0, pressForce, 0);
+
+        // Play the pressure plate sound
+        SoundManager.PlaySound(SoundType.PRESSUREPLATEA);
     }
 
     // When an object leaves the pressure plate
@@ -41,6 +45,11 @@ public class PressurePlate : MonoBehaviour
     {
         // This code executes when something leaves the pressure plate
         targetObject.SetActive(false);
+
+        // Reset the top part of the pressure plate to its initial position
         topPressurePlate.transform.localPosition = topPlateColliderInit;
+
+        // Play the pressure plate sound
+        SoundManager.PlaySound(SoundType.PRESSUREPLATEB);
     }
 }
