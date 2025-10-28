@@ -111,6 +111,8 @@ MonoBehaviour:
   player: {fileID: 0}
   followDistance: 15
   launchForce: 10
+  kickStrength: 100
+  launchStrength: 100
   easyDifficulty: {fileID: 11400000, guid: fbe3ef72978f04847b9b87bbb47eb015, type: 2}
   mediumDifficulty: {fileID: 11400000, guid: 8da88ba81e640aa46acace43623c56b8, type: 2}
   hardDifficulty: {fileID: 11400000, guid: 6adc1a4721f442d4eb715f825d98eb02, type: 2}

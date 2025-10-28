@@ -1486,7 +1486,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 26acad758d769a640a0518de77b0220b, type: 3}
       propertyPath: m_Name
-      value: Can1
+      value: Can
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 26acad758d769a640a0518de77b0220b, type: 3}
       propertyPath: m_Layer
@@ -2404,6 +2404,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2823102460174441499, guid: 4ce90f81674dfe849a5bb8415cd4daec, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2135182774}
     - target: {fileID: 2927702275412380471, guid: 4ce90f81674dfe849a5bb8415cd4daec, type: 3}
       propertyPath: m_LocalPosition.x
       value: 52.6
@@ -2957,6 +2961,10 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8741763106924325347, guid: 1f877160371512546af4d20866e8c90b, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 46ffe88491bdec546a8d4729f3ed33af, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -33835,7 +33843,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 3810e11382930ea4c9c34db0590eae8a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -33870,6 +33878,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2823102460174441499, guid: 4ce90f81674dfe849a5bb8415cd4daec, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2135182774}
     - target: {fileID: 2927702275412380471, guid: 4ce90f81674dfe849a5bb8415cd4daec, type: 3}
       propertyPath: m_LocalPosition.x
       value: 48.3

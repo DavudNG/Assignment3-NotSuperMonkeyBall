@@ -3,7 +3,8 @@ using UnityEngine;
 public class Bin : MonoBehaviour
 {
     public string tagTocheck;
-
+    private bool isCompleted = false;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,9 +19,16 @@ public class Bin : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.collider.tag == tagTocheck)
+        if(collision.collider.CompareTag(tagTocheck))
         {
-
+            collision.gameObject.SetActive(false);
+            SetCompleted();
         }
+    }
+
+    public void SetCompleted()
+    {
+        isCompleted = true;
+
     }
 }

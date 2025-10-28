@@ -41,7 +41,6 @@ public class Ball : MonoBehaviour
         origColor = myRenderer.color; // grab the original colour
     }
 
-
     void Update()
     {
         //if the ball is frozen, stays frozen for set time. After time is up it unfreezes.

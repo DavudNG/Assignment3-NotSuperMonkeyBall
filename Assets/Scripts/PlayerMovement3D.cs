@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 /*
@@ -12,11 +13,12 @@ public class PlayerMovement3D : MonoBehaviour
     public CharacterController myCharacterController;
     public Animator myAnimator; // Ref to the Animator of the player
     public PlayerData3D myPlayerData; // ref to the relevant playerdata
+    public CinemachineCamera myCamera;
 
     public float currentAttackTimer; // float that represents the current Attack timer
     public float currentJumpTime; // float that represents the current jump timer
-    public Vector3 raySize; // size of the ray cast to use
-    public float castDistance; // off set of the ray cast to use
+    //public Vector3 raySize; // size of the ray cast to use
+    public float castDistance; // size of the ray cast to use
     public LayerMask groundLayer; // ref to the groundlayer tag
     public LayerMask interactableLayer; // ref to the interactable layer tag
     public float pushPower = 2.0f; // power to push rigidbodies when colliding with them
@@ -104,7 +106,10 @@ public class PlayerMovement3D : MonoBehaviour
     */
     public void Move(Vector2 movementVector)
     {
-        Vector3 v3ToMove = new Vector3 (movementVector.x, 0 , movementVector.y); // store the vector parameters in a local variable
+        //Vector3 upDirection = GetUpDirection(myCamera);
+        //Vector3 rightDirection = GetRightDirection(myCamera);
+
+        Vector3 v3ToMove = new Vector3 ( movementVector.x, 0 , movementVector.y); // store the vector parameters in a local variable
         if(v3ToMove != Vector3.zero) // if the movement isnt zero
         {
             Quaternion rotation = Quaternion.LookRotation(v3ToMove); // calculate the quaternion of the movement vector
@@ -126,7 +131,7 @@ public class PlayerMovement3D : MonoBehaviour
     {
         if(currentJumpTime < myPlayerData.maxJumpTime) // if current jump time doesnt exceed max 
         {
-            landPartOnce = true;
+            landPartOnce = false;
             // Calculate and apply upward force to the char controller
             myCharacterController.Move(new Vector3(0, myPlayerData.jumpForce * myPlayerData.jumpForceMultiplier * Time.deltaTime, 0));
             currentJumpTime += Time.deltaTime; // 
@@ -196,13 +201,13 @@ public class PlayerMovement3D : MonoBehaviour
         //RaycastHit hit;
         // checks whether the raycast returns true if it collides with either the groundlayer or interactable
         if (Physics.Raycast(transform.position, Vector3.down, castDistance, groundLayer) || 
-                Physics.Raycast(transform.position, Vector3.down, castDistance, interactableLayer))
+        Physics.Raycast(transform.position, Vector3.down, castDistance, interactableLayer))
         {
-            if (landPartOnce == true)
+            if (landPartOnce == false)
             {
                 landParticles.transform.position = transform.position;
                 landParticles.Play();
-                landPartOnce = false;
+                landPartOnce = true;
             }
             // if true
             currentJumpTime = 0; // reset current jump timer
@@ -235,6 +240,24 @@ public class PlayerMovement3D : MonoBehaviour
         // Apply the push force to the rigidbody
         body.AddForce(pushDir * pushPower, ForceMode.VelocityChange);
     }
+
+    //private Vector3 GetUpDirection(CinemachineCamera camera)
+    //{
+    //    Vector3 forwardDirection = camera.transform.forward;
+    //    
+    //    forwardDirection.y = 0; // ignore height
+    //
+    //    return forwardDirection.normalized;
+    //}
+    //
+    //private Vector3 GetRightDirection(CinemachineCamera camera)
+    //{
+    //    Vector3 forwardDirection = camera.transform.right;
+    //
+    //    forwardDirection.y = 0; // ignore height
+    //
+    //    return forwardDirection.normalized;
+    //}
 
     //debug raycast draw gizmo
     private void OnDrawGizmos()
