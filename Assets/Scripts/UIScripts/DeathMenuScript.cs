@@ -12,7 +12,6 @@ public class DeathMenuScript : MonoBehaviour
 
 {
     public GameObject deathScreen;
-    [SerializeField] private DifficultyData difficultyDataScript;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

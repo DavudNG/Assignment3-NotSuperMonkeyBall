@@ -19,7 +19,7 @@ public class SpawnPlayer : MonoBehaviour
     private Vector3[] level1Locations = {
     new Vector3(40f, -3.5f, 0f),
     new Vector3(86f, 0f, 0f),
-    new Vector3(97f, 0f, 0f),
+    new Vector3(105f, 0f, 0f),
     new Vector3(109f, 0f, 0f)
     };
     private Vector3[] level2Locations = {

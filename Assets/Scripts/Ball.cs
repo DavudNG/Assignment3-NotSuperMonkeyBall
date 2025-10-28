@@ -29,6 +29,7 @@ public class Ball : MonoBehaviour
 
     // Hitflash variables
     public SpriteRenderer myRenderer; // Ref to the renderer of the ball
+    public MeshRenderer myMeshRenderer;
     private Coroutine _hitFlashCorotine; // Ref to the hitflash coroutine 
     private Color origColor; // To store the original color of the player
     public float flashTime; // Float that denotes the duration of the flash
@@ -38,9 +39,17 @@ public class Ball : MonoBehaviour
     {
         rb = this.GetComponent<Rigidbody2D>(); // grab the rigidbody 2d off this object
         ogConstraints = rb.constraints;
-        origColor = myRenderer.color; // grab the original colour
-    }
+        if(this.gameObject.CompareTag("Ball"))
+        {
+            origColor = myRenderer.color; // grab the original colour
+        }
 
+        else if(this.gameObject.CompareTag("Can") || this.gameObject.CompareTag("TrashBag"))
+        {
+            origColor = myMeshRenderer.material.color;
+        }
+            
+    }
 
     void Update()
     {
@@ -143,7 +152,16 @@ public class Ball : MonoBehaviour
             elapsedTime += Time.deltaTime; // increment the elapsed time
 
             Color lerpedColor = Color.Lerp(new Color(255, 144, 129), origColor, elapsedTime / flashTime); // lerp the colour value from the intended colour back to the original color  
-            myRenderer.color = lerpedColor; // set the renderer's color each time to transition the color for the hit effect 
+
+            if (this.gameObject.CompareTag("Ball"))
+            {
+                myRenderer.color = lerpedColor; // set the renderer's color each time to transition the color for the hit effect 
+            }
+
+            else if (this.gameObject.CompareTag("Can") || this.gameObject.CompareTag("TrashBag"))
+            {
+                myMeshRenderer.material.color = lerpedColor;
+            }
             yield return null; // pause the coroutine for a single frame with yield return null
         }
     }

@@ -13,18 +13,18 @@ public class BallHealth3D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Handle logic when the ball falls off the platform
-        if(this.transform.position.y < 45)
-        {
-            // Remove 100 health killing the ball
-            registerHit(100);
-        }
+       //// Handle logic when the ball falls off the platform
+       //if(this.transform.position.y < 45)
+       //{
+       //    // Remove 100 health killing the ball
+       //    registerHit(100);
+       //}
     }
 
     // Use a function inside the ball to register a hit
     // This can be used outside of this script providing basically a "setter" for the balls health
     // Use a default value of 1, however this can be overridden
-    void registerHit(int damage = 1)
+    public void registerHit(int damage)
     {
         // Subtract one from health
         health -= damage;

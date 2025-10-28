@@ -10,7 +10,6 @@ using UnityEngine.SceneManagement;
 */
 public class GameRestart : MonoBehaviour
 {
-    [SerializeField] private DifficultyData difficultyDataScript;
 
     // Update is called once per frame
     // We use update to monitor inputs

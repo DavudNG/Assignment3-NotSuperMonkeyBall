@@ -550,6 +550,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f783f5747c677e4aa32c6fc6bfb84ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &248333583 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -6602836843092979663, guid: be8752f5e2c3bec4890f3583761a53b5, type: 3}
+  m_PrefabInstance: {fileID: 491238970}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20968a1578e135a46bfb293bf9744205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeathMenuScript
 --- !u!1 &315573251
 GameObject:
   m_ObjectHideFlags: 0
@@ -7621,9 +7632,14 @@ MonoBehaviour:
   player: {fileID: 427012520}
   followDistance: 10
   launchForce: 10
+  kickStrength: 100
+  launchStrength: 100
   easyDifficulty: {fileID: 11400000, guid: fbe3ef72978f04847b9b87bbb47eb015, type: 2}
   mediumDifficulty: {fileID: 11400000, guid: 8da88ba81e640aa46acace43623c56b8, type: 2}
   hardDifficulty: {fileID: 11400000, guid: 6adc1a4721f442d4eb715f825d98eb02, type: 2}
+  myRenderer: {fileID: 1978002820}
+  flashTime: 0.5
+  health: 0
 --- !u!1 &1508954227
 GameObject:
   m_ObjectHideFlags: 0
@@ -8944,31 +8960,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1507795830039628303, guid: 9ccca58b17055ae42a3ef0deb7f68e65, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9998096
       objectReference: {fileID: 0}
     - target: {fileID: 1507795830039628303, guid: 9ccca58b17055ae42a3ef0deb7f68e65, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.008580775
       objectReference: {fileID: 0}
     - target: {fileID: 1507795830039628303, guid: 9ccca58b17055ae42a3ef0deb7f68e65, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.017445443
       objectReference: {fileID: 0}
     - target: {fileID: 1507795830039628303, guid: 9ccca58b17055ae42a3ef0deb7f68e65, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.0016883438
       objectReference: {fileID: 0}
     - target: {fileID: 1507795830039628303, guid: 9ccca58b17055ae42a3ef0deb7f68e65, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -0.98
       objectReference: {fileID: 0}
     - target: {fileID: 1507795830039628303, guid: 9ccca58b17055ae42a3ef0deb7f68e65, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -2.001
       objectReference: {fileID: 0}
     - target: {fileID: 1507795830039628303, guid: 9ccca58b17055ae42a3ef0deb7f68e65, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 0.211
       objectReference: {fileID: 0}
     - target: {fileID: 3094761317051893499, guid: 9ccca58b17055ae42a3ef0deb7f68e65, type: 3}
       propertyPath: m_Name
@@ -8999,6 +9015,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1472945672}
   m_SourcePrefab: {fileID: 100100000, guid: 9ccca58b17055ae42a3ef0deb7f68e65, type: 3}
+--- !u!212 &1978002820 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2843361833080239310, guid: 9ccca58b17055ae42a3ef0deb7f68e65, type: 3}
+  m_PrefabInstance: {fileID: 1978002819}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2001781298
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24011,8 +24032,28 @@ PrefabInstance:
       value: 123
       objectReference: {fileID: 0}
     - target: {fileID: 605557744020726782, guid: 684acf2c15731964ea1cec2a5180630d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 605557744020726782, guid: 684acf2c15731964ea1cec2a5180630d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 605557744020726782, guid: 684acf2c15731964ea1cec2a5180630d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 248333583}
+    - target: {fileID: 605557744020726782, guid: 684acf2c15731964ea1cec2a5180630d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 605557744020726782, guid: 684acf2c15731964ea1cec2a5180630d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Restart
+      objectReference: {fileID: 0}
+    - target: {fileID: 605557744020726782, guid: 684acf2c15731964ea1cec2a5180630d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: DeathMenuScript, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2807307396405278859, guid: 684acf2c15731964ea1cec2a5180630d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode

@@ -7,7 +7,6 @@ public class PauseMenuScript : MonoBehaviour
     //sets pauseMenu as canvas overlay
     public GameObject pauseMenu;
     public static bool isPaused;
-    [SerializeField] private DifficultyData difficultyDataScript;
 
     void Start()
     {

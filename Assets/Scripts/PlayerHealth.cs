@@ -17,8 +17,6 @@ public class PlayerHealth : MonoBehaviour
     public Image[] hearts;
     private int heartIndex;
 
-
-
     // Hitflash variables
     public SpriteRenderer myRenderer; // Ref to the renderer of the player
     private Coroutine _hitFlashCorotine; // Ref to the coroutine 

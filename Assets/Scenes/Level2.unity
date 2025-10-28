@@ -2173,6 +2173,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: IceEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2377820909666482847, guid: a0b93ec8cdbcd784aae099114506be45, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4705565580198631271, guid: a0b93ec8cdbcd784aae099114506be45, type: 3}
       propertyPath: ball
       value: 
@@ -2180,8 +2184,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2377820909666482847, guid: a0b93ec8cdbcd784aae099114506be45, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1662063868}
   m_SourcePrefab: {fileID: 100100000, guid: a0b93ec8cdbcd784aae099114506be45, type: 3}
+--- !u!212 &175116676 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6842701946075844137, guid: a0b93ec8cdbcd784aae099114506be45, type: 3}
+  m_PrefabInstance: {fileID: 175116675}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &219748883
 GameObject:
   m_ObjectHideFlags: 0
@@ -11760,6 +11772,31 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2377820909666482847, guid: a0b93ec8cdbcd784aae099114506be45, type: 3}
   m_PrefabInstance: {fileID: 175116675}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1662063868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662063867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a8c5bcc52098e941ae81f0905a76881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ParentEnemy
+  movementType: 0
+  BNF_time: 2
+  player: {fileID: 1380020369}
+  followDistance: 15
+  launchForce: 10
+  kickStrength: 100
+  launchStrength: 100
+  easyDifficulty: {fileID: 11400000, guid: fbe3ef72978f04847b9b87bbb47eb015, type: 2}
+  mediumDifficulty: {fileID: 11400000, guid: 8da88ba81e640aa46acace43623c56b8, type: 2}
+  hardDifficulty: {fileID: 11400000, guid: 6adc1a4721f442d4eb715f825d98eb02, type: 2}
+  myRenderer: {fileID: 175116676}
+  flashTime: 0.5
+  health: 0
 --- !u!1 &1673894040 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2865864022188717046, guid: ac8d3f70bbe6b3943b5d58f1546f65bb, type: 3}

@@ -119,7 +119,17 @@ public class PlayerAttack : MonoBehaviour
 
         if (attackTest.collider != null) // when the list isnt empty
         {
-            attackTest.collider.GetComponent<Ball>().Kick(myPlayer.GetFlipped()); //call kick method from objects in the list
+            //attackTest.collider.GetComponent<Ball>().Kick(myPlayer.GetFlipped()); //call kick method from objects in the list
+            if (attackTest.collider.gameObject.tag == "Ball" || attackTest.collider.gameObject.tag == "TrashBag"
+                    || attackTest.collider.gameObject.tag == "Can" || attackTest.collider.gameObject.tag == "Plant")
+            {
+                attackTest.collider.GetComponent<Ball>().Kick(myPlayer.GetFlipped()); // call launch method from objects in the list);
+            }
+
+            else if (attackTest.collider.gameObject.tag == "Enemy")
+            {
+                attackTest.collider.GetComponent<ParentEnemy>().TakeDamage(myPlayer.GetFlipped()); // call launch method from objects in the list);
+            }
         }
     }
 
@@ -152,11 +162,18 @@ public class PlayerAttack : MonoBehaviour
 
         if (attackTest.collider != null) // when the list isnt empty 
         {
-            attackTest.collider.GetComponent<Ball>().Launch(myPlayer.GetFlipped()); // call launch method from objects in the list
-        }
-  
-    }
+            if (attackTest.collider.gameObject.tag == "Ball" || attackTest.collider.gameObject.tag == "TrashBag"
+                || attackTest.collider.gameObject.tag == "Can" || attackTest.collider.gameObject.tag == "Plant")
+            {
+                attackTest.collider.GetComponent<Ball>().Launch(myPlayer.GetFlipped()); // call launch method from objects in the list);
+            }
 
+            else if (attackTest.collider.gameObject.tag == "Enemy")
+            {
+                attackTest.collider.GetComponent<ParentEnemy>().TakeDamage(myPlayer.GetFlipped()); // call launch method from objects in the list);
+            }
+        }
+    }
 
     // quick OnDrawGizmo function to check the sizes of the raycasts 
     private void OnDrawGizmos()

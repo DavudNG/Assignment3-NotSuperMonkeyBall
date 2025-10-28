@@ -14,7 +14,6 @@ public class FinishLevelScript : MonoBehaviour
 
     // Initiate the actual Panel which contains all of the UI we need to show
     public GameObject finishLevelScreen;
-    [SerializeField] private DifficultyData difficultyDataScript;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
