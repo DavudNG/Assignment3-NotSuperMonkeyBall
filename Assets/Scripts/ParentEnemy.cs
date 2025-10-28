@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UIElements;
 
 /*
@@ -18,18 +19,21 @@ public class ParentEnemy : MonoBehaviour
     public Transform player; // Transform for the player's position for the "FollowPlayer" movement type
     public float followDistance = 15f; // Distance within which y withe enemll start following the player
     public float launchForce = 10f; // Force applied to the player when colliding with the enemy
+    public float kickStrength;
+    public float launchStrength;
     public DifficultyData easyDifficulty;
     public DifficultyData mediumDifficulty;
     public DifficultyData hardDifficulty;
     private DifficultyData difficultyData;
+    
     public SpriteRenderer myRenderer; // Ref to the renderer of the player
     private Coroutine _hitFlashCorotine; // Ref to the coroutine 
     private Color origColor; // To store the original color of the player
     public float flashTime; // Float that denotes the duration of the flash
     private float speed;
-    private int health;
+    public int health;
     private bool isAlive = true;
-    
+    private float countdown = 3; 
 
 
 
@@ -66,6 +70,18 @@ public class ParentEnemy : MonoBehaviour
         health = difficultyData.health;
     }
 
+    private void Update()
+    {
+        if(!isAlive)
+        {
+            countdown-= Time.deltaTime;
+        }
+        if(countdown < 0)
+        {
+            this.gameObject.SetActive(false);
+        }
+    }
+
     /*
     
     OnCollisionEnter2D
@@ -85,19 +101,36 @@ public class ParentEnemy : MonoBehaviour
         {
             // Apply an upwards force
             rb.AddForce(Vector2.up * launchForce, ForceMode2D.Impulse);
+            if(rb.gameObject.tag == "Player")
+            {
+                rb.GetComponent<PlayerHealth>().takeDamage();
+            }
         }
     }
 
-    public void TakeDamage()
+    public void TakeDamage(bool flipped)
     {
-        health--;
-        CallHitFlash(); // call hitflash coroutine
+        if (health > 0)
+        {
+            health--;
+            CallHitFlash(); // call hitflash coroutine
+            if(flipped)
+            {
+                this.GetComponent<Rigidbody2D>().AddForce(new Vector2(-kickStrength, launchStrength), ForceMode2D.Force);
+            }
+            else
+            {
+                this.GetComponent<Rigidbody2D>().AddForce(new Vector2(kickStrength, launchStrength), ForceMode2D.Force);
+            }
+        }
 
         if (health == 0)
         {
             isAlive = false;
-            myRenderer.color = new Color(63, 50, 50); // lerp the colour value from the intended colour back to the original color  
+            this.GetComponent<BoxCollider2D>().enabled = false;
+            myRenderer.color = new Color(133, 110, 110); // lerp the colour value from the intended colour back to the original color  
         }
+
     }
     
     private IEnumerator FollowPlayer() // IEnumerator for the follow player coroutine

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2322227163644520761}
   - component: {fileID: 8235213340761185008}
   - component: {fileID: 5765656579843644081}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PatrolEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -107,11 +107,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementType: 0
-  BNF_speed: 5
   BNF_time: 2
   player: {fileID: 0}
   followDistance: 15
   launchForce: 10
+  easyDifficulty: {fileID: 11400000, guid: fbe3ef72978f04847b9b87bbb47eb015, type: 2}
+  mediumDifficulty: {fileID: 11400000, guid: 8da88ba81e640aa46acace43623c56b8, type: 2}
+  hardDifficulty: {fileID: 11400000, guid: 6adc1a4721f442d4eb715f825d98eb02, type: 2}
+  myRenderer: {fileID: 7500158330185429330}
+  flashTime: 0.5
+  health: 0
 --- !u!50 &2322227163644520761
 Rigidbody2D:
   serializedVersion: 5
