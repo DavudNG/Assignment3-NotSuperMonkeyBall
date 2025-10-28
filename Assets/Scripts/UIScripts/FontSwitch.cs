@@ -13,7 +13,7 @@ public class FontSwitch : MonoBehaviour
 {
 
     // Create references to the two fonts we will be switching between
-    public TMP_FontAsset defaultFont;
+    static TMP_FontAsset defaultFont;
     public TMP_FontAsset dyslexiaFont;
 
     // Create a reference to the TextMeshProUGUI component
