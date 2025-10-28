@@ -43,19 +43,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         isFlipped = true; // flip the player on start cauz monkey faces backwards
-
-        if (difficultyDataScript.GetJumpForce() == 50)
-        {
-            Debug.Log("screwed up");
-        }
-        else
-        {
-            Debug.Log("passed the vibe check");
-        }
-
         moveSpeed = myPlayerData2D.moveSpeed;
         jumpForce = myPlayerData2D.jumpForce;
-
     }
     
     /*
@@ -83,15 +72,6 @@ public class PlayerMovement : MonoBehaviour
         if (!knockedBack) // If not currently getting knocked back (getting knocked back disables movement for a time period)
         {
             movementInput = new Vector2(move, 0); // grab the x magnitude from move and create a new vector 2
-
-            if (Input.GetKeyDown(KeyCode.Space) && isGrounded())
-            {
-                SoundManager.PlaySound(SoundType.JUMP); // Play the jump sound when jumping
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, difficultyDataScript.GetJumpForce()); // add the jump force to the existing velocity
-                Debug.Log("jumpforce: " + difficultyDataScript.GetJumpForce());
-                StopParticleEffect(); // clear the particle effect
-                PlayParticleEffect(); // play the particle effect emission
-            }
 
             myAnimator.SetFloat("speed", Mathf.Abs(movementInput.x)); // sets the paramater in animation statemachine for the animation to play move
             myAnimator.SetFloat("vertical_speed", rb.linearVelocity.y); // sets the paramater in animation statemachine for the animation to play jump
@@ -129,10 +109,14 @@ public class PlayerMovement : MonoBehaviour
     */
     public void Jump()
     {
-        SoundManager.PlaySound(SoundType.JUMP); // Play the jump sound when jumping
-        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // add the jump force to the existing velocity
-        StopParticleEffect(); // clear the particle effect
-        PlayParticleEffect(); // play the particle effect emission
+        if(isGrounded())
+        {
+            SoundManager.PlaySound(SoundType.JUMP); // Play the jump sound when jumping
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // add the jump force to the existing velocity
+            StopParticleEffect(); // clear the particle effect
+            PlayParticleEffect(); // play the particle effect emission
+        }
+
     }
         /*
             isGrounded()   

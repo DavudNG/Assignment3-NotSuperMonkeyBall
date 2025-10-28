@@ -8,6 +8,7 @@ using UnityEngine;
 */
 public class PlayerMovement3D : MonoBehaviour
 {
+   
     public CharacterController myCharacterController;
     public Animator myAnimator; // Ref to the Animator of the player
     public PlayerData3D myPlayerData; // ref to the relevant playerdata
