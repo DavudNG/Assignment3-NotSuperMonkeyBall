@@ -27,9 +27,15 @@ public class LevelProgress : MonoBehaviour
             Debug.Log("Level Complete! Score: " + score);
             // Shows the finish level screen, passing thrtough the players score and the current level index
             finishLevel.DisplayFinishLevelScreen(score, UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+            Reset();
+
         }
     }
 
+    private void Reset()
+    {
+        levelProgress = 0;
+    }
     public void IncreaseProgress()
     {
         levelProgress+= 1;
