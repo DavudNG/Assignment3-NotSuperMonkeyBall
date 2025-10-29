@@ -47,6 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e5d995d7a650049bbcb8f08d5f77f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  myAnimator: {fileID: 8142595072787756241}
+  myProgress: {fileID: 0}
+  tagTocheck: Ball
 --- !u!61 &2299917287379135174
 BoxCollider2D:
   m_ObjectHideFlags: 0

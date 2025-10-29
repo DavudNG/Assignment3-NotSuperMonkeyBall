@@ -4,6 +4,7 @@ public class Bin : MonoBehaviour
 {
     public Animator myAnimator;
     public LevelProgress myProgress;
+    public ProgressBar myProgressBar;
     public string tagTocheck;
     private bool isCompleted = false;
     
@@ -34,11 +35,11 @@ public class Bin : MonoBehaviour
         isCompleted = true;
         myProgress.IncreaseProgress();
         myAnimator.SetTrigger("isComplete");
+        myProgressBar.SetProgressImage(tagTocheck);
     }
 
     public bool GetCompleted()
     {
         return isCompleted;
-        
     }
 }

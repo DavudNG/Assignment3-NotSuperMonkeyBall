@@ -22,7 +22,7 @@ public class Spikes : MonoBehaviour
     private bool isDamaging = false;
 
     // Check for any collisions with a rigidbody2d
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
 
         // When the player enters the trigger zone we need to initiate damage
@@ -33,40 +33,45 @@ public class Spikes : MonoBehaviour
         if (isDamaging) return;
 
         // Initialize a coroutine to handle damage timing if needed
-        StartCoroutine(takeDamage(other));
+        StartCoroutine(TakeDamage(other));
 
     }
 
-    IEnumerator takeDamage(Collider2D other)
+    IEnumerator TakeDamage(Collider2D other)
     {
-        // Flag that we are damaging the player
-        isDamaging = true;
-
-        // Trigger the object to take damage
-        PlayerHealth player = other.GetComponent<PlayerHealth>();
-        if (player != null)
+        if(!isDamaging)
         {
-            // Call your takeDamage() function
-            player.takeDamage();
+            // Flag that we are damaging the player
+            isDamaging = true;
+
+            // Trigger the object to take damage
+            PlayerHealth player = other.GetComponent<PlayerHealth>();
+            if (player != null)
+            {
+                // Call your takeDamage() function
+                player.takeDamage();
+            }
+
+            // Launch the player up like a spring
+            // This code is copied from Spring.cs
+
+            GameObject playerObject = other.gameObject;
+
+            // Example: apply a force if it has a Rigidbody2D
+            Rigidbody2D rb = playerObject.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.AddForce(Vector2.up * 20f, ForceMode2D.Impulse);
+            }
+
+            
+
+            // Wait for 1 second before allowing damage again
+            // This is to prevent the player from taking damage every frame while touching the spikes
+            //yield return new WaitForSeconds(1f);
+            yield return null;
         }
-
-        // Launch the player up like a spring
-        // This code is copied from Spring.cs
-
-        GameObject playerObject = other.gameObject;
-
-        // Example: apply a force if it has a Rigidbody2D
-        Rigidbody2D rb = playerObject.GetComponent<Rigidbody2D>();
-        if (rb != null)
-        {
-            rb.AddForce(Vector2.up * 20f, ForceMode2D.Impulse);
-        }
-
         isDamaging = false;
-
-        // Wait for 0.5 seconds before allowing damage again
-        // This is to prevent the player from taking damage every frame while touching the spikes
-        yield return new WaitForSeconds(0.5f);
     }
 
     private void OnTriggerExit2D(Collider2D other)
