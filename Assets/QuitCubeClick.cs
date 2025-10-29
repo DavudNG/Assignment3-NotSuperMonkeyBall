@@ -9,6 +9,8 @@ public class QuitCubeClick : MonoBehaviour
 
     private Vector3 offset;
     private Vector2 moveVector;
+    public MeshRenderer meshRenderer;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -85,7 +87,6 @@ IEnumerator forceJump(float duration = 0.2f)
     Application.Quit();
 }
 
-
     // Update is called once per frame
     void Update()
     {
@@ -97,7 +98,14 @@ IEnumerator forceJump(float duration = 0.2f)
             if (hit.transform == transform)
             {
                 Debug.Log("Mouse is hovering over " + gameObject.name);
+                meshRenderer.material.color = Color.yellow;
             }
+            else {
+                meshRenderer.material.color = Color.white;
+            }
+        }
+        else {
+                meshRenderer.material.color = Color.white;
         }
     }
 }
