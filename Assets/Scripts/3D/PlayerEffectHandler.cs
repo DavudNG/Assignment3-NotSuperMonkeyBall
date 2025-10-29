@@ -20,9 +20,16 @@ public class PlayerEffectHandler : MonoBehaviour
     {
         Debug.Log("Activating jump powerup effect");
         // Increase the player's jump force
-        Player.GetComponent<PlayerMovement3D>().jumpForce = initialJumpForce * multiplier;
+        Player.GetComponent<PlayerMovement3D>().isEmpowered = true;
 
         // After the duration, reset the jump force
         Invoke("ResetJumpForce", duration);
+    }
+
+    private void ResetJumpForce()
+    {
+        // Set the jump force back to the initial value
+        Debug.Log("Resetting jump force");
+        Player.GetComponent<PlayerMovement3D>().isEmpowered = false;
     }
 }

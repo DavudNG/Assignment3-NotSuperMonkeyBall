@@ -13,6 +13,7 @@ public class PlayerMovement3D : MonoBehaviour
     public CharacterController myCharacterController;
     public Animator myAnimator; // Ref to the Animator of the player
     public PlayerData3D myPlayerData; // ref to the relevant playerdata
+    public PlayerData3D myPowerupData; // ref to the relevant playerdata when powered up
     public CinemachineCamera myCamera;
 
     public float currentAttackTimer; // float that represents the current Attack timer
@@ -26,6 +27,9 @@ public class PlayerMovement3D : MonoBehaviour
     public ParticleSystem attackParticles;
     public ParticleSystem uppercutParticles;
     private bool landPartOnce = false;
+
+    // Whether the player has jump boost or not
+    public bool isEmpowered = false;
 
     [Tooltip("Impulse strength applied upward on Start")]
     public float jumpForce = 500f;
@@ -133,7 +137,13 @@ public class PlayerMovement3D : MonoBehaviour
         {
             landPartOnce = false;
             // Calculate and apply upward force to the char controller
-            myCharacterController.Move(new Vector3(0, myPlayerData.jumpForce * myPlayerData.jumpForceMultiplier * Time.deltaTime, 0));
+            if(isEmpowered)
+            {
+                myCharacterController.Move(new Vector3(0, myPowerupData.jumpForce * myPowerupData.jumpForceMultiplier * Time.deltaTime, 0));
+            }
+            else {
+                myCharacterController.Move(new Vector3(0, myPlayerData.jumpForce * myPlayerData.jumpForceMultiplier * Time.deltaTime, 0));
+            }
             currentJumpTime += Time.deltaTime; // 
         }
     }

@@ -35,6 +35,9 @@ public class PressurePlate : MonoBehaviour
         // Lower the top part of the pressure plate to simulate being pressed
         topPressurePlate.transform.localPosition = new Vector3(0, pressForce, 0);
 
+        // Set the target object's opacity to 50%
+        targetObject.GetComponent<HiddenBridge>().SetOpacity(0.5f);
+
         // Play the pressure plate sound
         SoundManager.PlaySound(SoundType.PRESSUREPLATEA);
     }

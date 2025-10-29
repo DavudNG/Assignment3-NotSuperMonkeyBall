@@ -4,7 +4,7 @@ isMoonGrav=false
 isColourblind=false
 <<<<<<< HEAD
 volume=1
-clickedObject=false
+clickedObject=true
 =======
 volume=1
 >>>>>>> main

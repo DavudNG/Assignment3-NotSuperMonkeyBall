@@ -53,4 +53,18 @@ public class HiddenBridge : MonoBehaviour
         // Move the bridge down by 1 unit
         this.gameObject.transform.Translate(0f, -0.005f, 0f);
     }
+
+    public void SetOpacity(float alpha)
+    {
+        // Get the renderer for each child element of the bridge, or the blocks
+        Renderer[] renderers = GetComponentsInChildren<Renderer>();
+        
+        // Set all of them to a lower opacity based on the alpha value passed in
+        foreach (Renderer renderer in renderers)
+        {
+            Color color = renderer.material.color;
+            color.a = alpha;
+            renderer.material.color = color;
+        }
+    }
 }
