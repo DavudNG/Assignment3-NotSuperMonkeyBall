@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeedMultiplier: 10
   jumpForce: 35
-  jumpForceMultiplier: 1
+  jumpForceMultiplier: 2
   gravityForce: 9.8
   gravityForceMultiplier: 1
   rotationSpeed: 500
