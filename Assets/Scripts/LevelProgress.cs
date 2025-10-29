@@ -11,7 +11,7 @@ public class LevelProgress : MonoBehaviour
 
     private void Awake()
     {
-        levelProgress = 2;
+        levelProgress = 0;
     }
     // Update is called once per frame
     void Update()
