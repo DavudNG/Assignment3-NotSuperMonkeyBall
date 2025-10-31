@@ -19,6 +19,7 @@ TagManager:
   - Can
   - Plant
   - Enemy
+  - ProgressBar
   layers:
   - Default
   - TransparentFX

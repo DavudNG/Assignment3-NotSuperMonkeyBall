@@ -19,25 +19,26 @@ public class InputHandler3D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 movementVector = _movementAction.ReadValue<Vector2>();
-        myMovementScript.Move(movementVector);
+        Vector2 movementVector = _movementAction.ReadValue<Vector2>(); // read the axis of movement
+        myMovementScript.Move(movementVector); // send the data
 
-        if (_jumpAction.IsPressed())
+        if (_jumpAction.IsPressed()) // when jump action is pressed
         {
-            myMovementScript.Jump();
+            myMovementScript.Jump(); // call the jump function
         }
 
-        if (_attackAction.triggered)
+        if (_attackAction.triggered) // when attack action is pressed
         {
-            myMovementScript.Attack();
+            myMovementScript.Attack(); // call the jump function
         }
 
-        if (_upperAction.triggered)
+        if (_upperAction.triggered) // when uppercut action is pressed
         {
-            myMovementScript.Uppercut();
+            myMovementScript.Uppercut(); // call the jump function
         }
     }
 
+    //quick functions to disable inputs
     public void DisableAllInputs()
     {
         _movementAction.Disable();
@@ -45,7 +46,7 @@ public class InputHandler3D : MonoBehaviour
         _attackAction.Disable();
         _upperAction.Disable();
     }
-    
+    //quick functions to enable inputs
     public void EnableAllInputs()
     {
         _movementAction.Enable();

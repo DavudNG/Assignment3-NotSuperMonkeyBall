@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//author: David(Reused Angus's Player Health script)
 public class PlayerHealth3D : MonoBehaviour
 {
 
@@ -15,12 +16,7 @@ public class PlayerHealth3D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //// Handle logic when the player falls off the platform
-        //if (this.transform.position.y < 45)
-        //{
-        //    // Remove 100 health killing the player
-        //    registerHit(damage);
-        //}
+
     }
 
     // Use a function inside the player to register a hit

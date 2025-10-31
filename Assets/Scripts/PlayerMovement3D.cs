@@ -5,6 +5,7 @@ using UnityEngine;
 /*
     PlayerAttack.cs     
     Author: David
+    co-author: James (particle effect related things)
     Desc: This script handles the players movement and model animations
 */
 public class PlayerMovement3D : MonoBehaviour
@@ -110,8 +111,6 @@ public class PlayerMovement3D : MonoBehaviour
     */
     public void Move(Vector2 movementVector)
     {
-        //Vector3 upDirection = GetUpDirection(myCamera);
-        //Vector3 rightDirection = GetRightDirection(myCamera);
 
         Vector3 v3ToMove = new Vector3 ( movementVector.x, 0 , movementVector.y); // store the vector parameters in a local variable
         if(v3ToMove != Vector3.zero) // if the movement isnt zero
@@ -156,12 +155,10 @@ public class PlayerMovement3D : MonoBehaviour
         attackParticles.Play();
     }
 
-    // TODO
-    
     /*
         Attack()   
         Author: David
-        Desc: 
+        Desc: Plays ther attack animation and sets the attack timer cooldown
     */
     public void Attack()
     {
@@ -182,13 +179,10 @@ public class PlayerMovement3D : MonoBehaviour
     }
 
 
-
-    // TODO
-
     /*
         Uppercut()   
         Author: David
-        Desc: 
+        Desc: plays the uppercut animation and sets the attack timer cooldown
     */
     public void Uppercut()
     {
@@ -250,24 +244,6 @@ public class PlayerMovement3D : MonoBehaviour
         // Apply the push force to the rigidbody
         body.AddForce(pushDir * pushPower, ForceMode.VelocityChange);
     }
-
-    //private Vector3 GetUpDirection(CinemachineCamera camera)
-    //{
-    //    Vector3 forwardDirection = camera.transform.forward;
-    //    
-    //    forwardDirection.y = 0; // ignore height
-    //
-    //    return forwardDirection.normalized;
-    //}
-    //
-    //private Vector3 GetRightDirection(CinemachineCamera camera)
-    //{
-    //    Vector3 forwardDirection = camera.transform.right;
-    //
-    //    forwardDirection.y = 0; // ignore height
-    //
-    //    return forwardDirection.normalized;
-    //}
 
     //debug raycast draw gizmo
     private void OnDrawGizmos()
