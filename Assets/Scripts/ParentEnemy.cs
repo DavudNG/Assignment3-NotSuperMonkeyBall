@@ -65,7 +65,11 @@ public class ParentEnemy : MonoBehaviour
         {
             difficultyData = hardDifficulty;
         }
-
+        else
+        {
+            difficultyData = easyDifficulty;
+        }
+        
         speed = difficultyData.speed;
         health = difficultyData.health;
     }

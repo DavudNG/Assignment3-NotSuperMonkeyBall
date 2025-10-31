@@ -1106,6 +1106,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2823102460174441499, guid: 4ce90f81674dfe849a5bb8415cd4daec, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2135182774}
     - target: {fileID: 2927702275412380471, guid: 4ce90f81674dfe849a5bb8415cd4daec, type: 3}
       propertyPath: m_LocalPosition.x
       value: 50.2
@@ -1476,6 +1480,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6199006466496525711, guid: be8752f5e2c3bec4890f3583761a53b5, type: 3}
+      propertyPath: m_TagString
+      value: GameController
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1563,6 +1571,62 @@ PrefabInstance:
       propertyPath: myProgressBar
       value: 
       objectReference: {fileID: 1217848118}
+    - target: {fileID: 8714427639362535960, guid: dc705bc4dd4593249854d7fd4322a18e, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714427639362535960, guid: dc705bc4dd4593249854d7fd4322a18e, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714427639362535960, guid: dc705bc4dd4593249854d7fd4322a18e, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714427639362535960, guid: dc705bc4dd4593249854d7fd4322a18e, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1217848118}
+    - target: {fileID: 8714427639362535960, guid: dc705bc4dd4593249854d7fd4322a18e, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 670388336}
+    - target: {fileID: 8714427639362535960, guid: dc705bc4dd4593249854d7fd4322a18e, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714427639362535960, guid: dc705bc4dd4593249854d7fd4322a18e, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714427639362535960, guid: dc705bc4dd4593249854d7fd4322a18e, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetProgressImage
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714427639362535960, guid: dc705bc4dd4593249854d7fd4322a18e, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: IncreaseProgress
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714427639362535960, guid: dc705bc4dd4593249854d7fd4322a18e, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ProgressBar, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714427639362535960, guid: dc705bc4dd4593249854d7fd4322a18e, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: LevelProgress, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714427639362535960, guid: dc705bc4dd4593249854d7fd4322a18e, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: TrashBag
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714427639362535960, guid: dc705bc4dd4593249854d7fd4322a18e, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714427639362535960, guid: dc705bc4dd4593249854d7fd4322a18e, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2320,6 +2384,62 @@ PrefabInstance:
       propertyPath: myProgressBar
       value: 
       objectReference: {fileID: 1217848118}
+    - target: {fileID: 9059585809362092451, guid: 9470c51143a187b4085db6164eaf5497, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9059585809362092451, guid: 9470c51143a187b4085db6164eaf5497, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9059585809362092451, guid: 9470c51143a187b4085db6164eaf5497, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9059585809362092451, guid: 9470c51143a187b4085db6164eaf5497, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1217848118}
+    - target: {fileID: 9059585809362092451, guid: 9470c51143a187b4085db6164eaf5497, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 670388336}
+    - target: {fileID: 9059585809362092451, guid: 9470c51143a187b4085db6164eaf5497, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9059585809362092451, guid: 9470c51143a187b4085db6164eaf5497, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9059585809362092451, guid: 9470c51143a187b4085db6164eaf5497, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetProgressImage
+      objectReference: {fileID: 0}
+    - target: {fileID: 9059585809362092451, guid: 9470c51143a187b4085db6164eaf5497, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: IncreaseProgress
+      objectReference: {fileID: 0}
+    - target: {fileID: 9059585809362092451, guid: 9470c51143a187b4085db6164eaf5497, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ProgressBar, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9059585809362092451, guid: 9470c51143a187b4085db6164eaf5497, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: LevelProgress, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9059585809362092451, guid: 9470c51143a187b4085db6164eaf5497, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Can
+      objectReference: {fileID: 0}
+    - target: {fileID: 9059585809362092451, guid: 9470c51143a187b4085db6164eaf5497, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 9059585809362092451, guid: 9470c51143a187b4085db6164eaf5497, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -31586,6 +31706,66 @@ PrefabInstance:
       propertyPath: myProgressBar
       value: 
       objectReference: {fileID: 1217848118}
+    - target: {fileID: 843496076732874613, guid: 6912b60d67694a948a75ac09c693c4d9, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 843496076732874613, guid: 6912b60d67694a948a75ac09c693c4d9, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 843496076732874613, guid: 6912b60d67694a948a75ac09c693c4d9, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 843496076732874613, guid: 6912b60d67694a948a75ac09c693c4d9, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1217848118}
+    - target: {fileID: 843496076732874613, guid: 6912b60d67694a948a75ac09c693c4d9, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 670388336}
+    - target: {fileID: 843496076732874613, guid: 6912b60d67694a948a75ac09c693c4d9, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 843496076732874613, guid: 6912b60d67694a948a75ac09c693c4d9, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 843496076732874613, guid: 6912b60d67694a948a75ac09c693c4d9, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetProgressImage
+      objectReference: {fileID: 0}
+    - target: {fileID: 843496076732874613, guid: 6912b60d67694a948a75ac09c693c4d9, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: IncreaseProgress
+      objectReference: {fileID: 0}
+    - target: {fileID: 843496076732874613, guid: 6912b60d67694a948a75ac09c693c4d9, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ProgressBar, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 843496076732874613, guid: 6912b60d67694a948a75ac09c693c4d9, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: LevelProgress, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 843496076732874613, guid: 6912b60d67694a948a75ac09c693c4d9, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Ball
+      objectReference: {fileID: 0}
+    - target: {fileID: 843496076732874613, guid: 6912b60d67694a948a75ac09c693c4d9, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: Ball
+      objectReference: {fileID: 0}
+    - target: {fileID: 843496076732874613, guid: 6912b60d67694a948a75ac09c693c4d9, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 843496076732874613, guid: 6912b60d67694a948a75ac09c693c4d9, type: 3}
+      propertyPath: progressEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5857652896953664761, guid: 6912b60d67694a948a75ac09c693c4d9, type: 3}
       propertyPath: m_Name
       value: PlantBin
@@ -33783,6 +33963,10 @@ PrefabInstance:
     - target: {fileID: 3567688262236789963, guid: f878a780e67377647800a80844a6f2c2, type: 3}
       propertyPath: m_Name
       value: ProgressBarPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567688262236789963, guid: f878a780e67377647800a80844a6f2c2, type: 3}
+      propertyPath: m_TagString
+      value: ProgressBar
       objectReference: {fileID: 0}
     - target: {fileID: 5147272228475439276, guid: f878a780e67377647800a80844a6f2c2, type: 3}
       propertyPath: m_Pivot.x

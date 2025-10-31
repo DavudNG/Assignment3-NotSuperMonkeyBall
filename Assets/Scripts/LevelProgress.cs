@@ -1,8 +1,13 @@
 using UnityEngine;
 
+/*
+    LevelProgress.cs
+    Author: David 
+    Desc:  Script controls the game progress.
+*/
 public class LevelProgress : MonoBehaviour
 {
-    int levelProgress;
+    int levelProgress; // int to check the amount of progress
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,7 +21,7 @@ public class LevelProgress : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (levelProgress > 2)
+        if (levelProgress > 2) // when the progress is more than 2
         {
             int score = (int)FindObjectOfType<LevelTimerScript>().currentTime; //deprecated but works for now
             // Find the finish level UI elements
@@ -32,10 +37,13 @@ public class LevelProgress : MonoBehaviour
         }
     }
 
+    // quick function to reset progress to zero
     private void Reset()
     {
         levelProgress = 0;
     }
+
+    // quick function to increment progress
     public void IncreaseProgress()
     {
         levelProgress+= 1;

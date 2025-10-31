@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class VolumeData : ScriptableObject
 {
-    private float volume = 1;
+    public float volume = 1;
     public float GetVolume()
     {
         return volume;
