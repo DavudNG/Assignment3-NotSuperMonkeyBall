@@ -20,7 +20,7 @@ public class PlayCubeClick : MonoBehaviour
     IEnumerator moveCoroutine()
     {
         inputHandler.DisableAllInputs();
-        ReadWrite.WriteAttribute("clickedObject", "true");
+        //ReadWrite.WriteAttribute("clickedObject", "true");
         Debug.Log("clicked on the play cube1");
         while (Vector3.Distance(
                new Vector3(playerMovement3D.transform.position.x, 0, playerMovement3D.transform.position.z),
@@ -48,10 +48,10 @@ public class PlayCubeClick : MonoBehaviour
         Debug.Log("clicked on the play cube");
 
 
-        if (ReadWrite.CheckAttribute("clickedObject") == false)
-        {
-            StartCoroutine(moveCoroutine());
-        }
+        //if (ReadWrite.CheckAttribute("clickedObject") == false)
+        //{
+        //    StartCoroutine(moveCoroutine());
+        //}
     }
 
     public void OnMouseHover()
@@ -59,10 +59,10 @@ public class PlayCubeClick : MonoBehaviour
         Debug.Log("clicked on the play cube");
 
 
-        if (ReadWrite.CheckAttribute("clickedObject") == false)
-        {
-            StartCoroutine(moveCoroutine());
-        }
+        //if (ReadWrite.CheckAttribute("clickedObject") == false)
+        //{
+        //    //StartCoroutine(moveCoroutine());
+        //}
     }
 
 IEnumerator forceJump(float duration = 0.2f)
@@ -119,5 +119,10 @@ IEnumerator forceJump(float duration = 0.2f)
         else {
                 meshRenderer.material.color = Color.white;
         }
+    }
+
+    public void Call()
+    {
+        StartCoroutine(moveCoroutine());
     }
 }
