@@ -50,7 +50,7 @@ public class FinishLevelScript : MonoBehaviour
         // Make sure the games time scale is resumed
         Time.timeScale = 1f;
         // Load the main menu scene, which is at index 0 in the build settings
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene(0);
     }
 
     // This handles the next level button

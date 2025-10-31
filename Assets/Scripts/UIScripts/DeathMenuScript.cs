@@ -44,6 +44,6 @@ public class DeathMenuScript : MonoBehaviour
     {
         // Make sure the time is resumed after leaving the game
         Time.timeScale = 1f;
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene(0);
     }
 }

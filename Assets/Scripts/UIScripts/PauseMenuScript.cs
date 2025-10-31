@@ -52,6 +52,6 @@ public class PauseMenuScript : MonoBehaviour
     public void GoToMainMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene(0);
     }
 }
